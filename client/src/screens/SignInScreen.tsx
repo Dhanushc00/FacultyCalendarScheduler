@@ -19,10 +19,29 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Icredentials, VerifyCred } from "../store/profileReducer";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Icredentials, VerifyCred } from "../store/profile/profileReducer";
+import { useDispatch,useSelector } from "react-redux";
+import { useHistory,useLocation } from "react-router-dom";
+import {RootState} from '../store/store'
+import Cookies from 'js-cookie'
+import { hostname } from "os";
+//import {useAuth} from '../routes/AuthRoute'
+interface LocationState {
+  from: {
+    pathname: string;
+  };
+}
+
 const SignInScreen = () => {
+  let history = useHistory();
+  let location = useLocation<LocationState>();
+  //let auth:any = useAuth();
+  const val:string|null = useSelector((state: RootState) => state.profile.user.role);
+// React.useEffect(()=>{
+//     if(Cookies.get('token')!=undefined){
+//       history.push(`/${val}`)
+//     }
+// },[])
   let InitialValues: Icredentials = {
     email: "",
     password: "",
@@ -31,7 +50,6 @@ const SignInScreen = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   const dispatch = useDispatch();
-  let history = useHistory();
   return (
     <Box
       d="flex"
@@ -53,7 +71,7 @@ const SignInScreen = () => {
         bg="#fff"
         borderRadius="20px"
       >
-        <Text fontSize="2xl" fontWeight={600} mb={3} color="#373b44">
+        <Text fontSize="2xl" fontFamily="cursive" fontWeight={600} mb={3} color="#373b44">
           SIGN IN
         </Text>
         <Formik
@@ -63,8 +81,13 @@ const SignInScreen = () => {
             { setSubmitting }: FormikHelpers<Icredentials>
           ) => {
             setSubmitting(false);
-            history.push("protected");
+            //history.push("protected");
+            let role=values.role;
+            let {from} = location.state || { from: { pathname: `/protected` } };
+            //history.replace(from);
+            history.push('/protected')
             dispatch(VerifyCred(values));
+            
           }}
           validationSchema={Yup.object().shape({
             email: Yup.string().email().required("Enter email"),
@@ -157,6 +180,8 @@ const SignInScreen = () => {
                   m={2}
                   w={300}
                   bg="#373b44"
+                  fontFamily="cursive"
+                  fontWeight="500"
                   color="gray.100"
                   variantColor="teal"
                   isLoading={isSubmitting}

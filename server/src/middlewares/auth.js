@@ -1,7 +1,9 @@
 const {verifyJwt} = require('../utils/jwt')
 
 const userAuthViaToken = async (req, res, next) => {
+  //console.log(req)
   const auth = req.header("Authorization");
+  //console.log(auth)
   if (!auth) {
     res.status(400).send({
       errors: {

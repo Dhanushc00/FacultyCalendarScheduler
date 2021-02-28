@@ -10,7 +10,7 @@ route.post("/",userAuthViaToken, (req, res) => {
 
 route.post("/protected",userAuthViaToken, (req, res) => {
     //console.log(req.body)
-    console.log("/protected")
+    //console.log("/protected")
         res.send()
     
 });
