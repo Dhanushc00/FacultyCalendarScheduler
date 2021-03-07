@@ -4,7 +4,7 @@ import { RootState } from "../store";
 import { TypeOf } from "yup";
 import { api } from "../api";
 import { ICreateAccount } from "../profile/profile";
-import { UPDATE_PROFILE } from "../profile/profileReducer";
+
 
 export const CREATE_ACCOUNT = "CREATE_ACCOUNT";
 export const UPDATE_USERS = "UPDATE_USERS";
@@ -24,7 +24,7 @@ interface UpdateUsersAction {
 export type AccountsAction = CreateAccountAction | UpdateUsersAction;
 
 export const CreateAccount = (
-  user: ICreateAccount
+  user: ICreateAccount,toast:any|undefined
 ): ThunkAction<void, RootState, unknown, Action<string>> => async (
   dispatch
 ) => {
@@ -36,9 +36,23 @@ export const CreateAccount = (
     .then((res: ICreateAccount[] | any) => {
       console.log(res);
       dispatch(GetAccounts());
+      toast({
+        title: "Account Creation Success",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
       //return {type: UPDATE_USERS , payload: res}
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      toast({
+        title: "Account Creation Failure",
+        description: JSON.stringify(err.response.data),
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+    })
     .finally(() => console.log("/api/users request made"));
 };
 

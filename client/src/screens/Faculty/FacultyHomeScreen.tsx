@@ -11,7 +11,7 @@ const FacultyHomeScreen = () => {
       Faculty
       <Button
         onClick={() => {
-          signOut();
+          signOut(history);
           history.push("/login");
         }}
       >

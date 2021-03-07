@@ -1,5 +1,6 @@
+import { toUnicode } from "punycode";
 import React from "react";
-import { useLocation, useRouteMatch, Switch, Route } from "react-router-dom";
+import { useLocation, useRouteMatch, Switch, Route, Redirect } from "react-router-dom";
 import CreateAccountRoute from "./CreateAccountRoute";
 import EventRoute from "./EventRoute";
 const AdminRoute = () => {
@@ -8,8 +9,9 @@ const AdminRoute = () => {
   return (
     <>
       <Switch location={location}>
-        <Route exact path={path} render={() => <CreateAccountRoute />} />
-        <Route path={`${path}/events`} exact component={()=><EventRoute/>} />
+        <Redirect exact from="/protected" to={`${path}/createaccount`} />
+        <Route exact={true} path={`${path}/createaccount`} render={() => <CreateAccountRoute />} />
+        <Route exact={true} path={`${path}/events`} render={()=><EventRoute/>} />
       </Switch>
     </>
   );

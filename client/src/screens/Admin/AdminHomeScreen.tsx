@@ -2,18 +2,17 @@ import React from "react";
 import { Box, Button } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
-import { clearToken } from "../../store/api";
+import {useDispatch} from 'react-redux';
+import {signOut} from '../../store/profile/profileReducer'
 const AdminHomeScreen = () => {
   let history = useHistory();
+  let dispatch =useDispatch();
   return (
     <Box>
       Admin
       <Button
         onClick={() => {
-          clearToken();
-          Cookies.remove("token");
-          console.log("rmvtoken");
-          history.push("login");
+          dispatch(signOut(history))
         }}
       >
         Sign out

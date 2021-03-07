@@ -17,14 +17,15 @@ import {
   InputRightAddon,
   InputRightElement,
   InputLeftElement,
+  useToast
 } from "@chakra-ui/react";
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Icredentials, VerifyCred } from "../store/profile/profileReducer";
+import { Icredentials} from "../store/profile/profile";
+import {VerifyCred} from '../store/profile/profileReducer';
 import { useDispatch,useSelector } from "react-redux";
 import { useHistory,useLocation } from "react-router-dom";
 import {RootState} from '../store/store'
-import Cookies from 'js-cookie'
-import { hostname } from "os";
+import Cookies from 'js-cookie';
 //import {useAuth} from '../routes/AuthRoute'
 interface LocationState {
   from: {
@@ -33,15 +34,19 @@ interface LocationState {
 }
 
 const SignInScreen = () => {
+  let toast=useToast();
   let history = useHistory();
   let location = useLocation<LocationState>();
   //let auth:any = useAuth();
-  const val:string|null = useSelector((state: RootState) => state.profile.user.role);
+  const isSignIn:boolean = useSelector((state: RootState) => !state.profile.isSignOut);
 // React.useEffect(()=>{
-//     if(Cookies.get('token')!=undefined){
-//       history.push(`/${val}`)
+//   //console.log(Cookies.get('token'));
+//     if(isSignIn){
+//       history.replace(`protected`)
+//     }else{
+//       history.replace('login')
 //     }
-// },[])
+// },[isSignIn])
   let InitialValues: Icredentials = {
     email: "",
     password: "",
@@ -85,9 +90,8 @@ const SignInScreen = () => {
             let role=values.role;
             let {from} = location.state || { from: { pathname: `/protected` } };
             //history.replace(from);
-            history.push('/protected')
-            dispatch(VerifyCred(values));
             
+            dispatch(VerifyCred(values,toast,history,from))
           }}
           validationSchema={Yup.object().shape({
             email: Yup.string().email().required("Enter email"),

@@ -18,6 +18,7 @@ import {
   HStack,
   Avatar,
   AvatarBadge,
+  useToast
 } from "@chakra-ui/react";
 import { Formik, Field, Form, FormikHelpers, FormikProps } from "formik";
 import * as Yup from "yup";
@@ -40,6 +41,7 @@ let InitialValues: ICreateAccount = {
 export default function CreateAccountScreen() {
   const [isAdmin, setIsAdmin] = React.useState();
   const dispatch=useDispatch();
+  let toast =useToast();
   return (
     <Box
       d="flex"
@@ -80,14 +82,8 @@ export default function CreateAccountScreen() {
             { setSubmitting,resetForm }: FormikHelpers<ICreateAccount>
           ) => {
             setSubmitting(false);
-            dispatch(CreateAccount(values));
+            dispatch(CreateAccount(values,toast));
             resetForm()
-            //history.push("protected");
-            //let role=values.role;
-            //let {from} = location.state || { from: { pathname: `/protected` } };
-            //history.replace(from);
-            //history.push('/protected')
-            //dispatch(VerifyCred(values));
           }}
           validationSchema={Yup.object().shape({
             email: Yup.string().email().required("Enter email"),

@@ -37,7 +37,7 @@ route.get("/allusers", userAuthViaToken, async (req, res) => {
       },
     });
   }
-  res.send(createdUser);
+  //res.send(createdUser);
 });
 
 route.post("/login", async (req, res) => {
@@ -46,12 +46,8 @@ route.post("/login", async (req, res) => {
     const verifiedUser = await verifyUser(req.body.user);
     res.send(verifiedUser);
   } catch (err) {
-    //console.log(err.message)
-    res.status(403).send({
-      error: {
-        body: [err.message],
-      },
-    });
+    console.log(err.message)
+    res.status(401).json(err.message);
   }
 });
 
