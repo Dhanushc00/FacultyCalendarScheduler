@@ -123,6 +123,7 @@ const SignInScreen = () => {
                     <Input
                       type="string"
                       id="email"
+                      variant="flushed"
                       value={values.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -146,6 +147,7 @@ const SignInScreen = () => {
                     <Input
                       type={show ? "text" : "password"}
                       id="password"
+                      variant="flushed"
                       value={values.password}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -171,12 +173,13 @@ const SignInScreen = () => {
                     placeholder="Sign in as"
                     w={300}
                     m={2}
+                    variant="flushed"
                     value={values.role}
                     onChange={handleChange}
                     color="gray.400"
                   >
-                    <option value="Faculty">Faculty</option>
-                    <option value="Admin">Admin</option>
+                    <option value="Faculty">{" Faculty"}</option>
+                    <option value="Admin">{" Admin"}</option>
                   </Select>
                 </FormControl>
                 <Button

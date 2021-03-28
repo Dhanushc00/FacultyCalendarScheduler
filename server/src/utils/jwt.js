@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const {Users} = require('../models/index')
 
 const JWT_SECRET = 'secret1238h9ubidjqqaddy7agur'
 const createJwt=async(user)=>{
@@ -8,7 +9,14 @@ const createJwt=async(user)=>{
 
 const verifyJwt=async(token)=>{
     const user = jwt.verify(token,JWT_SECRET)
-    return user
+    const UserDetail = await Users.findOne({
+        attributes: ["email", "username", "roles"],
+        where: {
+          username: user.username,
+        },
+      });
+
+    return UserDetail
 }
 
 module.exports={

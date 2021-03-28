@@ -4,12 +4,21 @@ const route=Router()
 // route.use('/',(req,res)=>{
 //     res.send("Hello from [index.js]")
 // })
-route.use('/users',require('./users'))
+route.use('/users',require('./users'))   
+// /-login , /allusers- get all users / login- login
 route.use('/user',require('./user'))
-// route.use('/profile',require('./profile'))
-// route.use('/users',require('./users'))
-// route.use('/users',require('./users'))
-// route.use('/users',require('./users'))
+// / view profile
+
+route.use('/ACal',require('./ACalendar'))
+
+route.use('/sem', require('./semester'))
+
+route.use('/CPeriods',require('./classperiods'))
+
+route.use('/events',require('./Events'))
+
+route.use('/leave',require('./applyLeave'))
+
 module.exports = route
 
 

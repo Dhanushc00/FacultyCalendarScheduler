@@ -17,7 +17,8 @@ import { RootState } from "../store/store";
 import Cookies from "js-cookie";
 import AdminRoute from "./AdminRoute";
 import AdminHeader from "../components/Admin/Header";
-import {LocationState} from '../store/utils'
+import FacRoute from "./FacRoute";
+import { LocationState } from "../store/utils";
 
 export default function Routes() {
   let { path, url } = useRouteMatch();
@@ -26,23 +27,29 @@ export default function Routes() {
   // const val: string | null = useSelector(
   //   (state: RootState) => state.profile.user.role
   // );
-  const [role,setRole]=React.useState(location.state);
-  React.useEffect(()=>{
-      setRole(Cookies.get('role'));
-  },[])
+  const [role, setRole] = React.useState(location.state);
+  React.useEffect(() => {
+    setRole(Cookies.get("role"));
+  }, []);
   const state = useSelector((state: RootState) => state.profile);
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   //console.log(val, state);
   if (role == "Faculty") {
-    return <><FacultyHomeScreen /></>;
+    return (
+      <>
+        <AdminHeader />
+        <FacRoute />
+        {/* <FacultyHomeScreen /> */}
+      </>
+    );
   }
   if (role == "Admin") {
     return (
       <>
         <AdminHeader />
         <AdminRoute />
-        <AdminHomeScreen />
+        {/* <AdminHomeScreen /> */}
       </>
     );
   }
