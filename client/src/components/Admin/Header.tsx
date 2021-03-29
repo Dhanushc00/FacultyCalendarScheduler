@@ -8,6 +8,7 @@ import {
   HamburgerIcon,
   RepeatIcon,
   ArrowForwardIcon,
+  TimeIcon,
 } from "@chakra-ui/icons";
 import {
   Box,
@@ -125,7 +126,7 @@ const Header = () => {
           Calendar
         </Button>
         <Button
-          leftIcon={<SettingsIcon mb={0.9} />}
+          leftIcon={<TimeIcon mb={0.9} />}
           bg="#373b44"
           _hover={{ color: "#87898e" }}
           color="#fff"
@@ -137,7 +138,7 @@ const Header = () => {
           fontSize="12"
           fontWeight="400"
         >
-          Settings
+          Reminder
         </Button>
         <Button
           leftIcon={<ArrowForwardIcon mb={0.9} />}

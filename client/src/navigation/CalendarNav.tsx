@@ -15,6 +15,7 @@ import CreatePeriods from "../screens/Admin/CreatePeriods";
 import Cookies from "js-cookie";
 
 function CalendarNav() {
+  let isAdmin = Cookies.get("role") == "Admin";
   return (
     <>
       <Tabs
@@ -44,33 +45,35 @@ function CalendarNav() {
           >
             CALENDAR
           </Tab>
-          {Cookies.get("role") == "Admin" ? (
-            <>
-              <Tab
-                my={1}
-                fontFamily="cursive"
-                fontWeight="600"
-                _focus={{ boxShadow: "none" }}
-              >
-                SEMESTER DETAILS
-              </Tab>
-              <Tab
-                my={1}
-                fontFamily="cursive"
-                fontWeight="600"
-                _focus={{ boxShadow: "none" }}
-              >
-                EDIT DAY TYPE
-              </Tab>
-              <Tab
-                my={1}
-                fontFamily="cursive"
-                fontWeight="600"
-                _focus={{ boxShadow: "none" }}
-              >
-                EDIT CLASS PERIODS
-              </Tab>
-            </>
+          {isAdmin ? (
+            <Tab
+              my={1}
+              fontFamily="cursive"
+              fontWeight="600"
+              _focus={{ boxShadow: "none" }}
+            >
+              SEMESTER DETAILS
+            </Tab>
+          ) : null}
+          {isAdmin ? (
+            <Tab
+              my={1}
+              fontFamily="cursive"
+              fontWeight="600"
+              _focus={{ boxShadow: "none" }}
+            >
+              EDIT DAY TYPE
+            </Tab>
+          ) : null}
+          {isAdmin ? (
+            <Tab
+              my={1}
+              fontFamily="cursive"
+              fontWeight="600"
+              _focus={{ boxShadow: "none" }}
+            >
+              EDIT CLASS PERIODS
+            </Tab>
           ) : null}
         </TabList>
 
@@ -78,18 +81,20 @@ function CalendarNav() {
           <TabPanel _focus={{ boxShadow: "none" }}>
             <CalendarScreen />
           </TabPanel>
-          {Cookies.get("role") == "Admin" ? (
-            <>
-              <TabPanel>
-                <ModifySemScreen />
-              </TabPanel>
-              <TabPanel>
-                <ModifyDayTypeScreen />
-              </TabPanel>
-              <TabPanel>
-                <CreatePeriods />
-              </TabPanel>
-            </>
+          {isAdmin ? (
+            <TabPanel>
+              <ModifySemScreen />
+            </TabPanel>
+          ) : null}
+          {isAdmin ? (
+            <TabPanel>
+              <ModifyDayTypeScreen />
+            </TabPanel>
+          ) : null}
+          {isAdmin ? (
+            <TabPanel>
+              <CreatePeriods />
+            </TabPanel>
           ) : null}
         </TabPanels>
       </Tabs>

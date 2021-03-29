@@ -50,18 +50,17 @@ function CreatePeriods() {
   const pk = useSelector((state: RootState) => state.period.pk);
   const periods = useSelector((state: RootState) => state.period.periods);
   React.useEffect(() => {
-    if(Cookies.get('role')=='Admin')
-        dispatch(getPk(toast));
+    if (Cookies.get("role") == "Admin") dispatch(getPk(toast));
   }, []);
   const [sem, setSem] = React.useState<string>("");
   const [username, setUsername] = React.useState<string>("");
   React.useEffect(() => {
     if (sem == "" || username == "") {
-      console.log("Clearrrperiods")
+      console.log("Clearrrperiods");
       dispatch({ type: CLR_PERIODS });
-    }else{
-        console.log("fetchPeriod12")
-        dispatch(getPeriods(sem, username, toast))
+    } else {
+      console.log("fetchPeriod12");
+      dispatch(getPeriods(sem, username, toast));
     }
   }, [sem, username]);
   const date = new Date();
@@ -97,7 +96,6 @@ function CreatePeriods() {
           ))}
         </Select>
         <Select
-          
           placeholder="Select Sem Id"
           w={"40vh"}
           value={sem}
@@ -125,7 +123,7 @@ function CreatePeriods() {
             setSubmitting(false);
             //let date=Moment(values.startTime).day(values.day);
             //console.log(Moment(date).format('llll'))
-            dispatch(AddPeriods(values,username,sem,toast));
+            dispatch(AddPeriods(values, username, sem, toast));
             //console.log(values.startTime);
             //resetForm();
           }}
@@ -134,10 +132,10 @@ function CreatePeriods() {
             startTime: Yup.string().required(),
             endTime: Yup.string().required(),
             courseCode: Yup.string()
-            .test("SemId", "Enter Valid SemID", (val: any) => {
-              return /^[0-9][0-9]CSE[0-9][0-9][0-9]$/.test(val);
-            })
-            .required(),
+              .test("SemId", "Enter Valid SemID", (val: any) => {
+                return /^[0-9][0-9]CSE[0-9][0-9][0-9]$/.test(val);
+              })
+              .required(),
           })}
         >
           {(props: FormikProps<IperiodInput>) => {

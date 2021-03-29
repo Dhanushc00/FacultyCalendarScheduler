@@ -35,7 +35,7 @@ import Lottie from "react-lottie";
 import { Formik, FormikHelpers, FormikProps } from "formik";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Ileave,Ileavesend } from "../../store/applyLeave/leave";
+import { Ileave, Ileavesend } from "../../store/applyLeave/leave";
 import { applyLeave } from "../../store/applyLeave/leaveReducer";
 import { RootState } from "../../store/store";
 import * as Yup from "yup";
@@ -106,13 +106,13 @@ export default function EventsScreen() {
                   }
                 >
                   <Select
-                    id="role"
+                    id="leavetype"
                     placeholder="leave type"
                     my={2}
                     variant="flushed"
                     value={values.leavetype}
                     onChange={(val) =>
-                      setFieldValue(".leavetype", val.target.value)
+                      setFieldValue("leavetype", val.target.value)
                     }
                     color="gray.500"
                   >
@@ -147,6 +147,7 @@ export default function EventsScreen() {
                   >
                     <DatePicker
                       //key="date"
+
                       label="todate"
                       value={values.todate}
                       onChange={(value: any) => setFieldValue("todate", value)}

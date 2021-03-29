@@ -31,8 +31,7 @@ function ModifySemScreen() {
   let dispatch = useDispatch();
   let toast = useToast();
   React.useEffect(() => {
-    if(Cookies.get('role')=='Admin')
-        dispatch(getSem(toast));
+    if (Cookies.get("role") == "Admin") dispatch(getSem(toast));
   }, []);
   const [show, setShow] = React.useState(false);
   const semDetails = useSelector((state: RootState) => state.sem);
@@ -147,7 +146,7 @@ function ModifySemScreen() {
                         }
                       >
                         <DatePicker
-                        key="startDate"
+                          key="startDate"
                           label="startDate"
                           value={values.startDate}
                           onChange={(value: any) =>
@@ -164,7 +163,7 @@ function ModifySemScreen() {
                         }
                       >
                         <DatePicker
-                        key="endDate"
+                          key="endDate"
                           label="endDate"
                           value={values.endDate}
                           onChange={(value: any) =>
@@ -240,7 +239,7 @@ function ModifySemScreen() {
                 <Td isNumeric>{q.semNo}</Td>
                 <Td isNumeric>
                   <IconButton
-                    onClick={()=>dispatch(delSem(q.SemId,toast))}
+                    onClick={() => dispatch(delSem(q.SemId, toast))}
                     colorScheme="red"
                     aria-label="Search database"
                     icon={<DeleteIcon />}

@@ -35,14 +35,15 @@ import Lottie from "react-lottie";
 import { Formik, FormikHelpers, FormikProps } from "formik";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Ievent,Ieventsend } from "../../store/Events/events";
+import { Ievent, Ieventsend } from "../../store/Events/events";
 import { getPk } from "../../store/classperiods/periodsReducer";
-import {createEvent} from '../../store/Events/EventReducer'
+import { createEvent } from "../../store/Events/EventReducer";
 import { RootState } from "../../store/store";
 import * as Yup from "yup";
 import { DatePicker, DateTimePicker } from "@material-ui/pickers";
 import eventAnim from "../../assets/Event_LF.json";
 import Cookies from "js-cookie";
+import { Portal } from "@material-ui/core";
 export default function EventsScreen() {
   const defaultOptions = {
     loop: true,
@@ -84,10 +85,11 @@ export default function EventsScreen() {
         initialValues={InitialValues}
         onSubmit={(
           values: Ieventsend,
-          { setSubmitting }: FormikHelpers<Ieventsend>
+          { setSubmitting, resetForm }: FormikHelpers<Ieventsend>
         ) => {
           setSubmitting(false);
-          dispatch(createEvent(values,toast))
+          dispatch(createEvent(values, toast));
+          resetForm();
           //history.push("protected");
         }}
         validationSchema={Yup.object().shape({
@@ -200,7 +202,7 @@ export default function EventsScreen() {
                   >
                     <option value="Misc">Misc</option>
                     <option value="Meeting">Meeting</option>
-                    {Cookies.get("role")=='Admin' ? (
+                    {Cookies.get("role") == "Admin" ? (
                       <option value="Exam">Exam</option>
                     ) : null}
                   </Select>
@@ -215,6 +217,7 @@ export default function EventsScreen() {
                   >
                     <DateTimePicker
                       //key="date"
+
                       label="StartTime"
                       value={values.startTime}
                       onChange={(value: any) =>
@@ -240,7 +243,10 @@ export default function EventsScreen() {
                   </FormControl>
                 </Box>
                 <Modal
-                  onClose={()=>{onClose();setFieldValue('Participants',[]);}}
+                  onClose={() => {
+                    onClose();
+                    setFieldValue("Participants", []);
+                  }}
                   finalFocusRef={btnRef}
                   isOpen={isOpen}
                   scrollBehavior={"inside"}
@@ -253,7 +259,13 @@ export default function EventsScreen() {
                       <Stack direction="column">
                         {pk.map((q) => {
                           return (
-                            <Checkbox id="Participants" name={"Participants"} defaultChecked={values.Participants.includes(q)} value={q} onChange={handleChange}>
+                            <Checkbox
+                              id="Participants"
+                              name={"Participants"}
+                              defaultChecked={values.Participants.includes(q)}
+                              value={q}
+                              onChange={handleChange}
+                            >
                               {q}
                             </Checkbox>
                           );
@@ -270,7 +282,14 @@ export default function EventsScreen() {
                       >
                         Add
                       </Button>
-                      <Button onClick={()=>{onClose();setFieldValue('Participants',[]);}}>Close</Button>
+                      <Button
+                        onClick={() => {
+                          onClose();
+                          setFieldValue("Participants", []);
+                        }}
+                      >
+                        Close
+                      </Button>
                     </ModalFooter>
                   </ModalContent>
                 </Modal>
@@ -286,13 +305,13 @@ export default function EventsScreen() {
                   Add Users
                 </Button>
                 <Box>
-                {values.Participants.map((q:any) => {
-                  return (
-                    <Badge variant="solid" colorScheme="blue" mr={2}>
-                      {q}
-                    </Badge>
-                  );
-                })}
+                  {values.Participants.map((q: any) => {
+                    return (
+                      <Badge variant="solid" colorScheme="blue" mr={2}>
+                        {q}
+                      </Badge>
+                    );
+                  })}
                 </Box>
                 <Button
                   mt={4}

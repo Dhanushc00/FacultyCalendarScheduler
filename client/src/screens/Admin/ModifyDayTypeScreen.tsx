@@ -18,7 +18,7 @@ import {
   IconButton,
   RadioGroup,
   Radio,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import { RootState } from "../../store/store";
 import { Iday } from "../../store/Days/days";
@@ -34,8 +34,7 @@ function ModifyDayTypeScreen() {
   let dispatch = useDispatch();
   let toast = useToast();
   React.useEffect(() => {
-    if(Cookies.get('role')=='Admin')
-            dispatch(getDay(toast));
+    if (Cookies.get("role") == "Admin") dispatch(getDay(toast));
   }, []);
   const [show, setShow] = React.useState(false);
   const dayDetails = useSelector((state: RootState) => state.day);
@@ -65,7 +64,7 @@ function ModifyDayTypeScreen() {
           { setSubmitting, resetForm }: FormikHelpers<Iday>
         ) => {
           setSubmitting(false);
-          console.log("******")
+          console.log("******");
           dispatch(AddDay(values, toast));
           resetForm();
           console.log(values);
@@ -117,7 +116,6 @@ function ModifyDayTypeScreen() {
                         }
                       >
                         <DatePicker
-                            
                           key="date"
                           label="date"
                           value={values.date}
@@ -135,7 +133,13 @@ function ModifyDayTypeScreen() {
                           Boolean(errors.type) && Boolean(touched.type)
                         }
                       >
-                        <RadioGroup variant="flushed" colorScheme="red" onChange={(value)=>setFieldValue("type",value)} id="type" value={values.type} >
+                        <RadioGroup
+                          variant="flushed"
+                          colorScheme="red"
+                          onChange={(value) => setFieldValue("type", value)}
+                          id="type"
+                          value={values.type}
+                        >
                           <Stack direction="row">
                             <Radio value="S">Working for staffs only</Radio>
                             <Radio value="H">Holiday</Radio>
@@ -168,7 +172,15 @@ function ModifyDayTypeScreen() {
             return (
               <Tr>
                 <Td>{q.date}</Td>
-                <Td>{q.type=="S"?"Working for staffs only":q.type=="H"?"Holiday":q.type=="W"?"Working Day":null}</Td>
+                <Td>
+                  {q.type == "S"
+                    ? "Working for staffs only"
+                    : q.type == "H"
+                    ? "Holiday"
+                    : q.type == "W"
+                    ? "Working Day"
+                    : null}
+                </Td>
                 <Td isNumeric>
                   <IconButton
                     onClick={() => dispatch(delDay(q.date, toast))}
