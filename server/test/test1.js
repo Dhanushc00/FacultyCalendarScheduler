@@ -17,8 +17,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const  app  = require('../src/routes/api/index');
+
 const server = require('../src/routes/api/users');
+const leaveserver = require('../src/routes/api/applyLeave');
 
 
 faker = require('faker'),
@@ -26,15 +27,16 @@ should = chai.should();
 var assert = require('assert');
 var request = require('supertest');
 const { createUser, verifyUser } = require("../src/controller/users.js");
+const {applyLeave,cancelLeave,updateLeave,getLeave} = require("../src/controller/leave.js");
 const { SSL_OP_EPHEMERAL_RSA } = require("constants");
 const { doesNotMatch } = require("assert");
 let baseUrl = 'http://localhost:3012';
-//let token = 'some_authorization_token';
+let token = 'some_authorization_token';
 
 
 
 
-
+console.log("Test");
 /*
 describe('POST /src/routes/api/users', () => {
   it('should respond with object on post create', function(done) {
@@ -52,7 +54,7 @@ describe('POST /src/routes/api/users', () => {
          done(err);
         }
         else{
-          console.log("Output login");
+          console.log("Output create user");
           console.log(res.body);
           done();
         }
@@ -64,8 +66,8 @@ describe('POST /src/routes/api/users', () => {
   });
   });
 
-*/
 
+*/
 
 describe('POST /src/routes/api/users/login', () => {
   it('should respond with success on post login', function(done) {
@@ -74,21 +76,22 @@ describe('POST /src/routes/api/users/login', () => {
   {"user": 
       {
         
-          "email"    :"sivasininetrasa1@gmail.com",
-          "password":"1234",
+          "email"    :"aishu18@gmail.com",
+          "password":"123",
           "role"    : "Faculty"
     }
   }
   
     request(server).post('/login').send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
-      
+      sleep(3000);
+      console.log("the body "+res.body);
       if (err){
         done(err);
       }
       else{
         console.log("Output");
         console.log(res.body);
-        //token = res.body.token;
+        token = res.body.token;
         done();
       }     
   
@@ -98,11 +101,42 @@ describe('POST /src/routes/api/users/login', () => {
   });
 
 
+/*
+describe('GET /src/routes/api/users/allusers', () => {
+  it('should respond with success on get', (done) => {
+    console.log("In test");
+    var data = 
+  
+    {"user":  {
+  
+      "email"    :"sasmithaa@gmail.com",
+      "password":"123",
+      
+      "roles"    :"Admin"
+} }
+      
+      //var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhc21pdGhhYUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImZhYzI1IiwiYmlvIjpudWxsLCJpbWFnZSI6bnVsbCwicGFzc3dvcmQiOiIkMmIkMTAkUVNFOGpBNFpKdnBlb1ZoSGxpVGJidUlvUjh0WDIzSXg1Ni5Lek5vZzlwOFlLVklrbnIvWUciLCJyb2xlcyI6WyJBZG1pbiIsIkZhY3VsdHkiXSwiaWF0IjoxNjE3MDkzNjEyfQ.IVdbNlkOygY1LodfiuV_GiS4z3ppTxp0Pmp6Nr7Wx7Y";
+      console.log("Token "+token);
+      request(server).get('/allusers').set({ 'Authorization': 'Bearer' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
+        //console.log(" in test again " +res.body);
+        if (err){
+          done(err);
+        }
+        else{
+          console.log("Output");
+          console.log(res.body);
+          token = res.body.token;
+          done();
+        }     
+    
+           });
+      
+  });
+  });
 
 
 
-
-
+*/
   
 
 
@@ -129,7 +163,7 @@ describe('#createUser', () => {
  
 });
 */
-
+/*
 describe('#verifyUser', () => {
  
   it('Check the login with valid parameters. Success', async ()  => { 
@@ -151,3 +185,140 @@ describe('#verifyUser', () => {
   });
  
 });
+*/
+
+
+/* Leave Unit Testing */
+
+/*
+describe('POST /src/routes/api/applyLeave', () => {
+  it('should respond with object on post create',function (done)  {
+    console.log("in test applyLeave ");
+    console.log("token " + token);
+    var data = 
+  
+      {
+        
+          "fromdate"  : "07-11-2021",
+          "todate"    : "08-11-2021",
+          "leavetype"  : "Normal"
+    }
+    request(leaveserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+      console.log("the body " +res.body);
+        if (err){
+         done(err);
+        }
+        else{
+          console.log("Output applyLeave");
+          console.log(res.body);
+          done();
+        }
+        
+        //done();
+  
+         });
+      
+  });
+  });
+  */
+
+
+  describe('get /src/routes/api/applyLeave', () => {
+    it('should respond with object on get view',function (done)  {
+      console.log("in test applyLeave ");
+      console.log("token " + token);
+      var data = 
+    
+        {"user" : {
+          
+            "username":"FAC18"
+      }}
+      request(leaveserver).get('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        console.log("the body " +res.body);
+          if (err){
+           done(err);
+          }
+          else{
+            console.log("Output applyLeave view get route");
+            console.log(res.body);
+            done();
+          }
+          
+          //done();
+    
+           });
+        
+    });
+    });
+  
+//Leaveid: 'e564e387-95be-4f3a-800e-3f480e3fc168',
+/*
+describe('put /src/routes/api/applyLeave', () => {
+  it('should respond with object on get view',function (done)  {
+    console.log("in test applyLeave ");
+    console.log("token " + token);
+    var data = 
+  
+     {"user": {
+        //"Leaveid": 'e564e387-95be-4f3a-800e-3f480e3fc168',
+        
+          "username":"FAC18"},
+          "leaveid":"07f7ddd5-0a16-4d5c-97cd-251446d601f4",
+          "fromdate"  : "07-11-2022",
+          "todate"    : "08-11-2023",
+          "leavetype"  : "Medical"}
+    
+    request(leaveserver).put('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+      console.log("the body " +res.body);
+        if (err){
+         done(err);
+        }
+        else{
+          console.log("Output applyLeave view get route");
+          console.log(res.body);
+          done();
+        }
+        
+        //done();
+  
+         });
+      
+  });
+  });
+  */
+
+
+
+
+ describe('delete /src/routes/api/applyLeave', () => {
+  it('should respond with object on get view',function (done)  {
+    console.log("in test applyLeave delete");
+    console.log("token " + token);
+    var data = 
+  
+     {"user": {
+        //"Leaveid": 'e564e387-95be-4f3a-800e-3f480e3fc168',
+        
+          "username":"FAC18"},
+          "leaveid":"07f7ddd5-0a16-4d5c-97cd-251446d601f4",
+          "fromdate"  : "07-11-2022",
+          "todate"    : "08-11-2023",
+          "leavetype"  : "Medical"}
+    
+    request(leaveserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+      console.log("the body " +res.body);
+        if (err){
+         done(err);
+        }
+        else{
+          console.log("Output applyLeave view get route");
+          console.log(res.body);
+          done();
+        }
+        
+        //done();
+  
+         });
+      
+  });
+  });

@@ -148,7 +148,7 @@ const Events = db.define("Events", {
 });
 
 const Leaves = db.define('leavedetails',{
-  Leaveid:{
+  leaveid:{
     type: Sequelize.DataTypes.UUID,
     defaultValue: Sequelize.UUIDV4,
     primaryKey: true,

@@ -11,6 +11,7 @@ route.use(bodyParser.urlencoded({extended:true}));
 route.post("/", async (req, res) => {
   //console.log(req.body)
   console.log("in users api");
+  console.log(req.body);
   try{
   const createdUser = await createUser({
     "username": req.body.username,
@@ -39,39 +40,36 @@ route.post("/", async (req, res) => {
 });
 
 route.get("/allusers", userAuthViaToken, async (req, res) => {
-  console.log("in api");
+  //console.log("in api "+req.body);
   try {
     const AllUsers = await allUsers({
       email: req.body.user.email,
     });
-    console.log(AllUsers);
-    //res.status(200).end("hello");
-    //res.send(AllUsers);
-    //res.setHeader('Content-Type', 'object');
-    //res.end(AllUsers);
-    res.send(AllUsers);
+    res.end("Hello");
     /*res.format ({
     
-      'object': function() {
-        console.log("in try");
+      'application/json': function() {
          res.send(AllUsers);
       }
     })*/
+   
   } catch (err) {
     console.log("err " +err.message);
-    res.status(403).send({
+    res.send({
       error: {
         body: [err.message],
       },
     });
   }
-  //res.send(createdUser);
+ 
 });
 
 route.post("/login", async (req, res) => {
   //console.log(req)
+  console.log("In login " + req.body.user);
   try {
     const verifiedUser = await verifyUser(req.body.user);
+    console.log("in login " + verifiedUser);
     res.format ({
     
       'application/json': function() {
