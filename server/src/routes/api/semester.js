@@ -1,6 +1,10 @@
-const { Router } = require("express");
+const Router  = require("express");
+const express=require('express');
+const bodyParser = require('body-parser');
 const {userAuthViaToken} = require('../../middlewares/auth')
 const route = Router();
+route.use(express.json());
+route.use(bodyParser.urlencoded({extended:true}));
 //const {Sem,Users}=require('../../models/index');
 const {createSem,updateSem,deleteSem,readSem} = require('../../controller/sem')
 
@@ -13,6 +17,7 @@ route.get("/",userAuthViaToken,async(req,res)=>{
     } 
 })
 route.post("/",userAuthViaToken, async(req, res) => {
+        console.log("in api " + req.body);
         try{
         const sem=await createSem(req.body,req.user.roles);
         res.send(sem);

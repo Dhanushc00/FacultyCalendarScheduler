@@ -45,13 +45,13 @@ route.get("/allusers", userAuthViaToken, async (req, res) => {
     const AllUsers = await allUsers({
       email: req.body.user.email,
     });
-    res.end("Hello");
-    /*res.format ({
+    //res.end("Hello");
+    res.format ({
     
       'application/json': function() {
          res.send(AllUsers);
       }
-    })*/
+    })
    
   } catch (err) {
     console.log("err " +err.message);

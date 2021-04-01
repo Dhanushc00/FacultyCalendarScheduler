@@ -20,8 +20,9 @@ function sleep(ms) {
 
 const server = require('../src/routes/api/users');
 const leaveserver = require('../src/routes/api/applyLeave');
-
-
+const semesterserver = require('../src/routes/api/semester');
+const cpserver= require('../src/routes/api/classperiods');
+const calserver = require('../src/routes/api/ACalendar');
 faker = require('faker'),
 should = chai.should();
 var assert = require('assert');
@@ -44,9 +45,9 @@ describe('POST /src/routes/api/users', () => {
     var data = 
   
       {
-        "username" : "FAC18",
-          "email"    :"aishu18@gmail.com",
-          "roles"    : ["Faculty"]
+        "username" : "FAC29",
+          "email"    :"sandy@gmail.com",
+          "roles"    : ["Faculty","Admin"]
     }
     request(server).post('/').send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
       //console.log(res);
@@ -66,8 +67,8 @@ describe('POST /src/routes/api/users', () => {
   });
   });
 
-
 */
+
 
 describe('POST /src/routes/api/users/login', () => {
   it('should respond with success on post login', function(done) {
@@ -76,9 +77,9 @@ describe('POST /src/routes/api/users/login', () => {
   {"user": 
       {
         
-          "email"    :"aishu18@gmail.com",
+          "email"    :"sandy@gmail.com",
           "password":"123",
-          "role"    : "Faculty"
+          "role"    : "Admin"
     }
   }
   
@@ -109,7 +110,7 @@ describe('GET /src/routes/api/users/allusers', () => {
   
     {"user":  {
   
-      "email"    :"sasmithaa@gmail.com",
+      "email"    :"sandy@gmail.com",
       "password":"123",
       
       "roles"    :"Admin"
@@ -117,7 +118,7 @@ describe('GET /src/routes/api/users/allusers', () => {
       
       //var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhc21pdGhhYUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImZhYzI1IiwiYmlvIjpudWxsLCJpbWFnZSI6bnVsbCwicGFzc3dvcmQiOiIkMmIkMTAkUVNFOGpBNFpKdnBlb1ZoSGxpVGJidUlvUjh0WDIzSXg1Ni5Lek5vZzlwOFlLVklrbnIvWUciLCJyb2xlcyI6WyJBZG1pbiIsIkZhY3VsdHkiXSwiaWF0IjoxNjE3MDkzNjEyfQ.IVdbNlkOygY1LodfiuV_GiS4z3ppTxp0Pmp6Nr7Wx7Y";
       console.log("Token "+token);
-      request(server).get('/allusers').set({ 'Authorization': 'Bearer' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
+      request(server).get('/allusers').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
         //console.log(" in test again " +res.body);
         if (err){
           done(err);
@@ -134,10 +135,7 @@ describe('GET /src/routes/api/users/allusers', () => {
   });
   });
 
-
-
 */
-  
 
 
     /* Users.js Controller */
@@ -221,7 +219,7 @@ describe('POST /src/routes/api/applyLeave', () => {
   });
   });
   */
-
+/*
 
   describe('get /src/routes/api/applyLeave', () => {
     it('should respond with object on get view',function (done)  {
@@ -250,7 +248,7 @@ describe('POST /src/routes/api/applyLeave', () => {
         
     });
     });
-  
+  */
 //Leaveid: 'e564e387-95be-4f3a-800e-3f480e3fc168',
 /*
 describe('put /src/routes/api/applyLeave', () => {
@@ -288,7 +286,7 @@ describe('put /src/routes/api/applyLeave', () => {
   */
 
 
-
+/*
 
  describe('delete /src/routes/api/applyLeave', () => {
   it('should respond with object on get view',function (done)  {
@@ -322,3 +320,336 @@ describe('put /src/routes/api/applyLeave', () => {
       
   });
   });
+  */
+
+
+
+  /* Semester Unit Testing */
+/*
+  describe('POST /src/routes/api/semester', () => {
+    it('should respond with object on post create',function (done)  {
+      console.log("in test semester ");
+      console.log("token " + token);
+      var data = 
+    
+      {
+        "SemId": "SEM_1_2019",
+        "startDate": "2018-07-06",
+        "endDate": "2018-11-15",
+        "semNo": "2"
+    }
+      request(semesterserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        console.log("the body " +res.body);
+          if (err){
+           done(err);
+          }
+          else{
+            console.log("Output semester");
+            console.log(res.body);
+            done();
+          }
+          
+          //done();
+    
+           });
+        
+    });
+    });
+*/
+/*
+    describe('GET /src/routes/api/semester', () => {
+      it('should respond with object on post create',function (done)  {
+        console.log("in test semester ");
+        console.log("token " + token);
+        var data = 
+      
+        {
+          "SemId": "SEM_1_2019",
+          "startDate": "2018-07-06",
+          "endDate": "2018-11-15",
+          "semNo": "2"
+      }
+        request(semesterserver).get('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+          console.log("the body " +res.body);
+            if (err){
+             done(err);
+            }
+            else{
+              console.log("Output semester");
+              console.log(res.body);
+              done();
+            }
+            
+            //done();
+      
+             });
+          
+      });
+      });
+
+
+      describe('DELETE /src/routes/api/semester', () => {
+        it('should respond with object on post create',function (done)  {
+          console.log("in test semester ");
+          console.log("token " + token);
+          var data = 
+        
+          {
+            "SemId": "SEM_1_2019",
+            "startDate": "2018-07-06",
+            "endDate": "2018-11-15",
+            "semNo": "2"
+        }
+          request(semesterserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+            console.log("the body " +res.body);
+              if (err){
+               done(err);
+              }
+              else{
+                console.log("Output semester");
+                console.log(res.body);
+                done();
+              }
+              
+              //done();
+        
+               });
+            
+        });
+        });
+        */
+
+        /* Class Periods Unit Testing*/
+
+/*
+
+        describe('POST /src/routes/api/classperiods', () => {
+          it('should respond with json on post create',function (done)  {
+            console.log("in test class periods create ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "startTime": "2017-11-01 16:00:49.349 +00:00",
+              "endTime": "2017-11-01 16:30:49.349 +00:00",
+              "courseCode":"15CSE311",
+              "userUsername": "FAC18",
+              "semesterSemId": "SEM_1_2018"
+          }
+            request(cpserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output classperiods");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+
+          
+
+*/
+
+/*
+        describe('GET /src/routes/api/classperiods', () => {
+          it('should respond with json on get view',function (done)  {
+            console.log("in test class periods view ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "FId": "FAC18",
+              "SemId": "SEM_1_2018"
+          }
+            request(cpserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output classperiods");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+          
+
+
+         describe('DELETE /src/routes/api/classperiods', () => {
+          it('should respond with json on delete route',function (done)  {
+            console.log("in test class periods delete ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "userUsername": "FAC18",
+              "semesterSemId": "SEM_1_2018",
+              "periodId":"b083bda0-9f56-40db-bff7-7fda6fb3a0b3"
+          }
+            request(cpserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output classperiods");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+
+          describe('GET /src/routes/api/classperiods', () => {
+            it('should respond with json on get view',function (done)  {
+              console.log("in test class periods view ");
+              console.log("token " + token);
+              var data = 
+            
+              {
+                "FId": "FAC18",
+                "SemId": "SEM_1_2018"
+            }
+              request(cpserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+                console.log("the body " +res.body);
+                  if (err){
+                   done(err);
+                  }
+                  else{
+                    console.log("Output classperiods");
+                    console.log(res.body);
+                    done();
+                  }
+                  
+                  //done();
+            
+                   });
+                
+            });
+            });
+
+
+            */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /* Academic Calendar Days  Unit Testing*/
+
+
+/*
+        describe('POST /src/routes/api/ACal', () => {
+          it('should respond with json on post create',function (done)  {
+            console.log("in test days create ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "date": "2018-01-05",
+              "type": "W"
+          }
+            request(calserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output days");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+
+          
+
+
+        describe('GET /src/routes/api/ACal', () => {
+          it('should respond with json on get view',function (done)  {
+            console.log("in test calendar view ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "date":"2018-01-01"
+          }
+            request(calserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output days");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+          
+
+         describe('DELETE /src/routes/api/ACal', () => {
+          it('should respond with json on delete route',function (done)  {
+            console.log("in test class periods delete ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "date":"2018-01-03"
+          }
+            request(calserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output days");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+
+         */
