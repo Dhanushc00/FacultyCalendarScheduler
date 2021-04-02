@@ -23,6 +23,7 @@ const leaveserver = require('../src/routes/api/applyLeave');
 const semesterserver = require('../src/routes/api/semester');
 const cpserver= require('../src/routes/api/classperiods');
 const calserver = require('../src/routes/api/ACalendar');
+const eventserver = require('../src/routes/api/Events');
 faker = require('faker'),
 should = chai.should();
 var assert = require('assert');
@@ -77,9 +78,9 @@ describe('POST /src/routes/api/users/login', () => {
   {"user": 
       {
         
-          "email"    :"sandy@gmail.com",
+          "email"    :"aishu18@gmail.com",
           "password":"123",
-          "role"    : "Admin"
+          "role"    : "Faculty"
     }
   }
   
@@ -548,19 +549,7 @@ describe('put /src/routes/api/applyLeave', () => {
 
 
             */
-
-
-
-
-
-
-
-
-
-
-
-
-
+           
 
             /* Academic Calendar Days  Unit Testing*/
 
@@ -653,3 +642,135 @@ describe('put /src/routes/api/applyLeave', () => {
           });
 
          */
+
+
+         /* Event Module Unit Testing*/
+/*
+
+         describe('POST /src/routes/api/events', () => {
+          it('should respond with json on post create',function (done)  {
+            console.log("in test days create ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "creator": "FAC18",
+              "startTime": "2021-05-12 16:00:49.349 +00:00",
+              "endTime": "2021-05-13 16:00:49.349 +00:00",
+              "EventName": "Post hello",
+              "Description": ""  ,
+              "type": "Misc",
+              "Location": "Canteen",
+              "Participants": ["FAC18",'FAC25']
+            }
+            request(eventserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output events");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+*/
+          
+
+
+        describe('GET /src/routes/api/events', () => {
+          it('should respond with json on get view',function (done)  {
+            console.log("in test event view ");
+            console.log("token " + token);
+            
+        
+         
+            request(eventserver).get('/').set({ 'Authorization': 'Token ' + token }).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output events");
+                  console.log(res.body);
+                  done();
+                }
+                
+               
+          
+                 });
+              
+          });
+          });
+         /* 
+
+         describe('DELETE /src/routes/api/ACal', () => {
+          it('should respond with json on delete route',function (done)  {
+            console.log("in test class periods delete ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "EventId":"dd51bc85-bb63-41e4-a8a9-d19ddb67388e"
+          }
+            request(eventserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output days");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+          */
+
+/*
+         describe('PUT /src/routes/api/events', () => {
+          it('should respond with json on put update',function (done)  {
+            console.log("in test days create ");
+            console.log("token " + token);
+            var data = 
+          
+            {
+              "EventId":"bae2a41d-9eab-47b1-8539-4139eed0b00b",
+              "creator": "FAC18",
+              "startTime": "2021-05-08 16:00:49.349 +00:00",
+              "endTime": "2021-05-09 16:00:49.349 +00:00",
+              "EventName": "Beach",
+              "Description": ""  ,
+              "type": "Misc",
+              "Location": "Canteen",
+              "Participants": ["FAC18",'FAC25']
+            }
+            request(eventserver).put('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  console.log("Output events");
+                  console.log(res.body);
+                  done();
+                }
+                
+                //done();
+          
+                 });
+              
+          });
+          });
+          */
