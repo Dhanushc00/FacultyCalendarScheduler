@@ -36,7 +36,7 @@ interface LocationState {
 const SignInScreen = () => {
   let toast=useToast();
   let history = useHistory();
-  let location = useLocation<LocationState>();
+  // let location = useLocation<LocationState>();
   //let auth:any = useAuth();
   const isSignIn:boolean = useSelector((state: RootState) => !state.profile.isSignOut);
 // React.useEffect(()=>{
@@ -77,7 +77,7 @@ const SignInScreen = () => {
         borderRadius="20px"
       >
         <Text fontSize="2xl" fontFamily="cursive" fontWeight={600} mb={3} color="#373b44">
-          SIGN IN
+          SIGN-IN
         </Text>
         <Formik
           initialValues={InitialValues}
@@ -88,10 +88,10 @@ const SignInScreen = () => {
             setSubmitting(false);
             //history.push("protected");
             let role=values.role;
-            let {from} = location.state || { from: { pathname: `/protected` } };
+            // let {from} = location.state || { from: { pathname: `/protected` } };
             //history.replace(from);
             
-            dispatch(VerifyCred(values,toast,history,from))
+            dispatch(VerifyCred(values,toast,history,'protected'))
           }}
           validationSchema={Yup.object().shape({
             email: Yup.string().email().required("Enter email"),
@@ -121,8 +121,10 @@ const SignInScreen = () => {
                       children={<EmailIcon color="gray.300" />}
                     />
                     <Input
+                      data-testid="email"
                       type="string"
                       id="email"
+                      label="email"
                       variant="flushed"
                       value={values.email}
                       onChange={handleChange}
@@ -145,6 +147,8 @@ const SignInScreen = () => {
                       children={<LockIcon color="gray.300" />}
                     />
                     <Input
+                      data-testid="password"
+                      label="password"
                       type={show ? "text" : "password"}
                       id="password"
                       variant="flushed"

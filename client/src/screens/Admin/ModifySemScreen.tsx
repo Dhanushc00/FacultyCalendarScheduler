@@ -128,6 +128,7 @@ function ModifySemScreen() {
                         }
                       >
                         <Input
+                          data-testid="SemId"
                           type="string"
                           id="SemId"
                           variant="flushed"

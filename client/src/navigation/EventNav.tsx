@@ -55,7 +55,7 @@ export default function EventRoute() {
             fontWeight="600"
             _focus={{ boxShadow: "none" }}
           >
-            PARTICPANT
+            PARTICIPANT
           </Tab>
         </TabList>
         <Divider orientation="vertical" w="20" bg="blue" color="black" />

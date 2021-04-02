@@ -116,9 +116,9 @@ export default function EventsScreen() {
                     }
                     color="gray.500"
                   >
-                    <option value="Normal">Normal</option>
-                    <option value="Medical">Medical</option>
-                    <option value="Duty">OnDuty</option>
+                    <option data-testid='Normal' value="Normal">Normal</option>
+                    <option data-testid='Medical' value="Medical">Medical</option>
+                    <option data-testid='OnDuty' value="Duty">OnDuty</option>
                   </Select>
                 </FormControl>
                 <Box d="flex" flexDirection="row">

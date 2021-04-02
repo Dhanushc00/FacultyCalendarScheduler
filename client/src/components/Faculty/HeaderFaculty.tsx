@@ -30,7 +30,7 @@ import {
             fontFamily="cursive"
             fontWeight="400"
           >
-            Faculty Calendar Schedular
+            Faculty Calendar Scheduler
           </Text>
         </Box>
         <Stack

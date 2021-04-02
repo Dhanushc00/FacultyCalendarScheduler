@@ -206,6 +206,7 @@ function CreatePeriods() {
                           }
                         >
                           <Input
+                            data-testid="coursecode"
                             type="string"
                             id="courseCode"
                             variant="flushed"

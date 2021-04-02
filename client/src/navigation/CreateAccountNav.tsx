@@ -12,8 +12,8 @@ import {
 } from "@chakra-ui/react";
 import ViewAccountsScreen from "../screens/Admin/ViewAccountsScreen";
 const CreateAccountRoute = () => {
-  const location = useLocation();
-  let { path, url } = useRouteMatch();
+  // const location = useLocation();
+  // let { path, url } = useRouteMatch();
 
   return (
     <>

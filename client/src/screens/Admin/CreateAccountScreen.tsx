@@ -113,6 +113,7 @@ export default function CreateAccountScreen() {
                       children={<EmailIcon color="gray.300" />}
                     />
                     <Input
+                      data-testid="email"
                       type="string"
                       id="email"
                       value={values.email}
@@ -136,6 +137,7 @@ export default function CreateAccountScreen() {
                       children={<ArrowForwardIcon color="gray.300" />}
                     />
                     <Input
+                      data-testid="username"
                       id="username"
                       value={values.username}
                       onChange={handleChange}

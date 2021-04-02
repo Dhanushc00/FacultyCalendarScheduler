@@ -27,7 +27,7 @@ const colors = {
 //   }
 // `;
 //const theme = extendTheme({ colors });
-const theme = extendTheme({
+export const theme = extendTheme({
   components: {
     Tab: { baseStyle: { _focus: { boxShadow: "none", outline: "none" } } },
     Button: { baseStyle: { _focus: { boxShadow: "none", outline: "none" } } },

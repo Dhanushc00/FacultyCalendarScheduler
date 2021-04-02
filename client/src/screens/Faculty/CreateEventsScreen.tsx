@@ -127,6 +127,7 @@ export default function EventsScreen() {
                   children={<EmailIcon color="gray.300" />}
                 /> */}
                     <Input
+                      data-testid="EventName"
                       type="string"
                       id="EventName"
                       color="gray.500"
@@ -155,6 +156,7 @@ export default function EventsScreen() {
                   children={<LocationIcon color="gray.300" />}
                 /> */}
                     <Input
+                      data-testid="Location"
                       type="string"
                       id="Location"
                       color="gray.500"
@@ -177,6 +179,7 @@ export default function EventsScreen() {
                   }
                 >
                   <Textarea
+                    data-testid="Description"
                     id="Description"
                     placeholder="Description"
                     color="gray.500"
@@ -260,6 +263,7 @@ export default function EventsScreen() {
                         {pk.map((q) => {
                           return (
                             <Checkbox
+    
                               id="Participants"
                               name={"Participants"}
                               defaultChecked={values.Participants.includes(q)}
