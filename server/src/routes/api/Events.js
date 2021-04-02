@@ -1,12 +1,16 @@
-const { Router } = require("express");
+const  Router  = require("express");
 const {userAuthViaToken} = require('../../middlewares/auth')
 const route = Router();
 //const {Sem,Users}=require('../../models/index');
 const {createEvents,getEvents,updateEvent,deleteEvent} = require('../../controller/events')
-
+const express=require('express');
+const bodyParser = require('body-parser');
+route.use(express.json());
+route.use(bodyParser.urlencoded({extended:true}));
 route.get("/",userAuthViaToken,async(req,res)=>{
     try{   
     const sem=await getEvents(req.user.username,req.user.roles);
+    res.setHeader("Content-Type", "application/json");
     res.send(sem);
     }catch(e){
     console.log(e);

@@ -3,7 +3,9 @@ const { createJwt, verifyJwt } = require("../utils/jwt");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const { sendMail } = require("../utils/sendMail");
+const  Serializer = require('sequelize-to-json')
 const createUser = async (userOpts) => {
+  console.log("Controller API");
   // console.log(userOpts)
   if (!userOpts.username) {
     throw new Error("Did not supply username");
@@ -38,6 +40,7 @@ const createUser = async (userOpts) => {
 };
 
 const verifyUser = async (userOpts) => {
+  console.log("0");
   if (!userOpts.email) {
     throw new Error("Did not supply email");
   }
@@ -47,12 +50,15 @@ const verifyUser = async (userOpts) => {
   if (!userOpts.role) {
     throw new Error("Did not supply your role");
   }
+  console.log("1");
   const user = await Users.findOne({
     attributes: ["email", "username", "bio", "image", "password", "roles"],
     where: {
       email: userOpts.email,
     },
   });
+  console.log("2");
+  console.log(user);
   if (!user.roles.includes(userOpts.role)) {
     throw new Error(`${userOpts.role} is not assigned to you`);
   }
@@ -77,6 +83,7 @@ const verifyUser = async (userOpts) => {
 };
 
 const allUsers = async (adminOpts) => {
+  console.log("in controller");
   const admin = await Users.findOne({
     attributes: ["roles"],
     where: {
@@ -91,7 +98,8 @@ const allUsers = async (adminOpts) => {
       "Only Admins are allowed to make view all accounts requests"
     );
   }
-  const users = await Users.findAll({
+  var postsAsJSON;
+   const users = await Users.findAll({
     attributes: [
       "email",
       "username",
@@ -102,7 +110,13 @@ const allUsers = async (adminOpts) => {
       "updatedAt",
     ],
   });
-  return users;
+    postsAsJSON = Serializer.serializeMany(users, Users);
+
+
+
+  
+  console.log("Users alluseers controller "+(postsAsJSON));
+  return postsAsJSON;
 };
 module.exports = {
   createUser,

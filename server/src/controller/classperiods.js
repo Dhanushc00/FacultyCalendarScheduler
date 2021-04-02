@@ -13,7 +13,10 @@ const createPeriods=async(periodOpts,roles)=>{
     return {...periods} 
 }
 const readPeriods=async(roles,SemId,username)=>{
+    console.log("in controller periods");
+    console.log("hello " +SemId+ " "+username);
     const periods=await ClassPeriods.findAll({where: {semesterSemId:SemId,userUsername:username}});
+    console.log("perio " +periods);
     if (!periods) throw new Error("Error: Could not read sem");
     return periods
 }

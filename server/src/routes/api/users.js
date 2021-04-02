@@ -1,19 +1,35 @@
-const { Router } = require("express");
+const  Router  = require("express");
+const express=require('express');
+const bodyParser = require('body-parser');
 const { createUser, verifyUser, allUsers } = require("../../controller/users");
 const { userAuthViaToken } = require("../../middlewares/auth");
 const route = Router();
 
+route.use(express.json());
+route.use(bodyParser.urlencoded({extended:true}));
+
 route.post("/", async (req, res) => {
   //console.log(req.body)
+  console.log("in users api");
+  console.log(req.body);
   try{
   const createdUser = await createUser({
-    username: req.body.username,
-    password: "123",
-    email: req.body.email,
-    roles: req.body.roles,
+    "username": req.body.username,
+    "password": "123",
+    "email": req.body.email,
+    "roles": req.body.roles,
   });
-  res.send(createdUser);
+  res.format ({
+    
+    'application/json': function() {
+       res.send(createdUser);
+    },
+ 
+ });
+  //res.send(createdUser);
+  //return createdUser;
 }catch(err){
+  console.log(err.message);
     res.status(403).send({
         error:{
             body:[err.message],
@@ -24,27 +40,42 @@ route.post("/", async (req, res) => {
 });
 
 route.get("/allusers", userAuthViaToken, async (req, res) => {
-  //console.log(req.user.email,"@@@@@")
+  //console.log("in api "+req.body);
   try {
     const AllUsers = await allUsers({
-      email: req.user.email,
+      email: req.body.user.email,
     });
-    res.send(AllUsers);
+    //res.end("Hello");
+    res.format ({
+    
+      'application/json': function() {
+         res.send(AllUsers);
+      }
+    })
+   
   } catch (err) {
-    res.status(403).send({
+    console.log("err " +err.message);
+    res.send({
       error: {
         body: [err.message],
       },
     });
   }
-  //res.send(createdUser);
+ 
 });
 
 route.post("/login", async (req, res) => {
   //console.log(req)
+  console.log("In login " + req.body.user);
   try {
     const verifiedUser = await verifyUser(req.body.user);
-    res.send(verifiedUser);
+    console.log("in login " + verifiedUser);
+    res.format ({
+    
+      'application/json': function() {
+         res.send(verifiedUser);
+      }
+    })
   } catch (err) {
     console.log(err.message)
     res.status(401).json(err.message);

@@ -1,7 +1,7 @@
 const {Sem} = require('../models/index');
 
 const createSem=async(semOpts,roles)=>{
-    //console.log(semOpts,roles);
+    console.log("in controller "+semOpts,roles);
     if(!roles.includes("Admin"))
         throw new Error("Only Admin roles can make this request")
     const sem = await Sem.create({

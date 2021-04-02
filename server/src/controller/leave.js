@@ -1,6 +1,7 @@
 const { Leaves } = require("../models/index");
-
+console.log("in controller");
 const applyLeave = async (leaveOpts,roles) => {
+  console.log("in controller ");
     if(!roles.includes("Faculty"))
         throw new Error("Only Faculty roles can make this request")
     console.log(leaveOpts);
@@ -13,10 +14,12 @@ const applyLeave = async (leaveOpts,roles) => {
   if (!leaveOpts.leavetype) {
     throw new Error (" Did not supply Leave Type");
   }
+  console.log("we");
   const leave = await Leaves.create({
     ...leaveOpts
   });
-  if (!leave) throw new Error ("Error: Could not create Leave");
+  console.log("heloo");
+  if (!leave){ throw new Error ("Error: Could not create Leave") };
   //const semesters= await Sem.findAll();
   const leave1 = await Leaves.findAll({where: {userUsername:leaveOpts.userUsername}});
   return {...leave1}
@@ -31,10 +34,11 @@ const getLeave=async(userUsername,roles)=>{
     return {...leave3};
 }
 const updateLeave=async(leaveOpts,roles)=>{
+  console.log("in controleer " + leaveOpts.leaveid);
     if(!roles.includes("Faculty"))
         throw new Error("Only Faculty roles can make this request")
   const leave1=await Leaves.findOne({
-    where: {Leaveid:leaveOpts.Leaveid}});
+    where: {leaveid:leaveOpts.leaveid}});
   if (!leave1) throw new Error("Error: Could not update leave");
   await leave1.update({...leaveOpts})
 //   leave1.fromdate = leaveopts.fromdate;
@@ -45,8 +49,8 @@ const updateLeave=async(leaveOpts,roles)=>{
   return {...leave2};
 }
 
-const cancelLeave = async(Leaveid,roles)=>{
-  const cancel = await Leaves.findOne({where: {Leaveid}});
+const cancelLeave = async(leaveid,roles)=>{
+  const cancel = await Leaves.findOne({where: {leaveid}});
   await cancel.destroy();
   return {message:"success"};
 }
