@@ -185,6 +185,7 @@ const SignInScreen = () => {
                   </Select>
                 </FormControl>
                 <Button
+                  data-testid="submit"
                   mt={4}
                   m={2}
                   w={300}

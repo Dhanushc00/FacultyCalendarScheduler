@@ -131,6 +131,7 @@ export default function EventsScreen() {
                   >
                     <DatePicker
                       //key="date"
+                      id="fromdate"
                       label="fromdate"
                       value={values.fromdate}
                       onChange={(value: any) =>
@@ -147,7 +148,7 @@ export default function EventsScreen() {
                   >
                     <DatePicker
                       //key="date"
-
+                      id="todate"
                       label="todate"
                       value={values.todate}
                       onChange={(value: any) => setFieldValue("todate", value)}
@@ -156,6 +157,7 @@ export default function EventsScreen() {
                   </FormControl>
                 </Box>
                 <Button
+                  id="apply"
                   mt={4}
                   m={2}
                   w={300}
