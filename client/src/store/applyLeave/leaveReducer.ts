@@ -109,17 +109,18 @@ export const updateLeave = (
     .finally(() => console.log("api/leave put request made"));
 };
 
-export const delEvent = (
+export const delLeave = (
   Leaveid: string|any,
   toast: any | undefined
 ): ThunkAction<void, RootState, unknown, Action<string>> => async (
   dispatch
 ) => {
+  console.log(Leaveid)
   api
     .delete("/leave", {
-      params: {
-        Leaveid: Leaveid,
-      },
+    params:{
+      Leaveid: Leaveid,
+    }
     })
     .then((res: Ileave[] | any) => {
       dispatch(getLeave(toast));

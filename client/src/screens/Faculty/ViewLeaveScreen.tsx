@@ -62,8 +62,8 @@ import { Formik, FormikHelpers, FormikProps } from "formik";
 import {
   getLeave,
   applyLeave,
-  delEvent,
   updateLeave,
+  delLeave
 } from "../../store/applyLeave/leaveReducer";
 import Cookies from "js-cookie";
 import * as Yup from "yup";
@@ -148,6 +148,7 @@ const ViewLeaveScreen = () => {
         </Thead>
         <Tbody>
           {Object.values(leaves).map((q: Ileave | any) => {
+           // console.log(q);
             return (
               <Tr>
                 <Td>{q.leavetype}</Td>
@@ -180,6 +181,7 @@ const ViewLeaveScreen = () => {
                             { setSubmitting, resetForm }: FormikHelpers<Ileave>
                           ) => {
                             setSubmitting(false);
+                            console.log(values);
                             dispatch(updateLeave(values, toast, pop.onClose));
                             //history.push("protected");
                           }}
@@ -296,7 +298,7 @@ const ViewLeaveScreen = () => {
                 </Td>
                 <Td isNumeric>
                   <IconButton
-                    onClick={() => dispatch(delEvent(q.Leaveid, toast))}
+                    onClick={() => {dispatch(delLeave(q.leaveid, toast));console.log(q.Leaveid)}}
                     colorScheme="red"
                     aria-label="Search database"
                     icon={<DeleteIcon />}

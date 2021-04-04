@@ -58,7 +58,7 @@ route.get("/", userAuthViaToken, async (req, res) => {
 
 route.put("/", userAuthViaToken, async (req, res) => {
   console.log("hello from api " +req.query);
-  console.log("hello " +req.body);
+  //console.log(req.body);
   try {
     let leave = await updateLeave(
       { ...req.body, userUsername: req.user.username },
@@ -74,9 +74,9 @@ route.put("/", userAuthViaToken, async (req, res) => {
 
 route.delete("/", userAuthViaToken, async (req, res) => {
   console.log(req.query);
-  console.log(req.body);
+  console.log(req.params);
   try {
-    const cancelLeave1 = await cancelLeave(req.query.leaveid,req.user.roles);
+    const cancelLeave1 = await cancelLeave(req.query.Leaveid,req.user.roles);
     res.send(cancelLeave1);
   } catch (e) {
     res.status(401).send({message: e})
