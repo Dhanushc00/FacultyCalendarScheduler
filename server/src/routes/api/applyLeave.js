@@ -79,6 +79,7 @@ route.delete("/", userAuthViaToken, async (req, res) => {
     const cancelLeave1 = await cancelLeave(req.query.leaveid,req.user.roles);
     res.send(cancelLeave1);
   } catch (e) {
+    res.status(401).send({message: e})
     console.log(e);
   }
 });

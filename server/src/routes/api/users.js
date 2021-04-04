@@ -55,10 +55,13 @@ route.get("/allusers", userAuthViaToken, async (req, res) => {
    
   } catch (err) {
     console.log("err " +err.message);
-    res.send({
+    res.status(401).send({
       error: {
         body: [err.message],
+  
       },
+  
+
     });
   }
  

@@ -13,7 +13,9 @@ route.get("/",userAuthViaToken,async(req,res)=>{
     res.setHeader("Content-Type", "application/json");
     res.send(sem);
     }catch(e){
-    console.log(e);
+
+        res.status(401).send({message: e})
+        console.log(e);
     } 
 })
 route.post("/",userAuthViaToken, async(req, res) => {
@@ -35,6 +37,7 @@ route.put("/",userAuthViaToken,async(req, res) => {
         const events=await updateEvent(req.body,req.user.username,req.user.roles);
         res.send(events);
     }catch(e){
+        res.status(401).send({message: e})
         console.log(e);
     }
         
@@ -50,6 +53,7 @@ route.delete("/",userAuthViaToken,async(req, res) => {
         const events =await deleteEvent(req.query.EventId,req.user.username,req.user.roles);
         res.send(events);
     }catch(e){
+        res.status(401).send({message: e})
         console.log(e);
     }
         

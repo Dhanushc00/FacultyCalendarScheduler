@@ -13,7 +13,8 @@ route.get("/",userAuthViaToken,async(req,res)=>{
     const sem=await readSem(req.user.roles);
     res.send(sem);
     }catch(e){
-    console.log(e);
+        res.status(401).send({message: e})
+        console.log(e);
     } 
 })
 route.post("/",userAuthViaToken, async(req, res) => {
@@ -36,6 +37,8 @@ route.put("/",userAuthViaToken,async(req, res) => {
         await updateSem(req.body,req.query.SemId,req.user.roles);
         res.send({message: "update Success"});
     }catch(e){
+        res.status(401).send({message: e})
+
         console.log(e);
     }
         
