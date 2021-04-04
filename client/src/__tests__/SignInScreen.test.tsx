@@ -22,7 +22,6 @@ describe("SignIN render Page", () => {
     const placeholder = getByText('Sign in as');
 
     expect(placeholder).toBeTruthy();
-
   });
 
   it('renders a submit button', () => {
