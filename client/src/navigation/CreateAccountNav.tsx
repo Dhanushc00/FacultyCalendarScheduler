@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useRouteMatch, Switch, Route } from "react-router-dom";
+import {  Switch, Route } from "react-router-dom";
 import CreateAccountScreen from "../screens/Admin/CreateAccountScreen";
 import {
   Tabs,
@@ -12,8 +12,7 @@ import {
 } from "@chakra-ui/react";
 import ViewAccountsScreen from "../screens/Admin/ViewAccountsScreen";
 const CreateAccountRoute = () => {
-  // const location = useLocation();
-  // let { path, url } = useRouteMatch();
+  
 
   return (
     <>

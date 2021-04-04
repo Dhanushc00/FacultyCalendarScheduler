@@ -23,7 +23,7 @@ import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Icredentials} from "../store/profile/profile";
 import {VerifyCred} from '../store/profile/profileReducer';
 import { useDispatch,useSelector } from "react-redux";
-import { useHistory,useLocation } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import {RootState} from '../store/store'
 import Cookies from 'js-cookie';
 //import {useAuth} from '../routes/AuthRoute'
@@ -36,8 +36,7 @@ interface LocationState {
 const SignInScreen = () => {
   let toast=useToast();
   let history = useHistory();
-  // let location = useLocation<LocationState>();
-  //let auth:any = useAuth();
+  
   const isSignIn:boolean = useSelector((state: RootState) => !state.profile.isSignOut);
 // React.useEffect(()=>{
 //   //console.log(Cookies.get('token'));
@@ -88,8 +87,7 @@ const SignInScreen = () => {
             setSubmitting(false);
             //history.push("protected");
             let role=values.role;
-            // let {from} = location.state || { from: { pathname: `/protected` } };
-            //history.replace(from);
+           
             
             dispatch(VerifyCred(values,toast,history,'protected'))
           }}
