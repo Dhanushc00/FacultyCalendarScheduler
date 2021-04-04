@@ -193,6 +193,7 @@ export default function EventsScreen() {
                   isInvalid={Boolean(errors.type) && Boolean(touched.type)}
                 >
                   <Select
+                    data-testid="role"
                     id="role"
                     placeholder="Event Type"
                     // w={300}
@@ -220,7 +221,7 @@ export default function EventsScreen() {
                   >
                     <DateTimePicker
                       //key="date"
-
+                      id="st"
                       label="StartTime"
                       value={values.startTime}
                       onChange={(value: any) =>
@@ -237,7 +238,7 @@ export default function EventsScreen() {
                   >
                     <DateTimePicker
                       //key="date"
-
+                      id="et"
                       label="EndTime"
                       value={values.endTime}
                       onChange={(value: any) => setFieldValue("endTime", value)}

@@ -179,7 +179,7 @@ const ViewEventsScreen = () => {
                 /> */}
                                           <Input
                                             type="string"
-                                            id="EventName"
+                                            t-id="EventName"
                                             color="gray.500"
                                             value={values.EventName}
                                             onChange={handleChange}
@@ -208,7 +208,7 @@ const ViewEventsScreen = () => {
                 /> */}
                                           <Input
                                             type="string"
-                                            id="Location"
+                                            t-id="Location"
                                             color="gray.500"
                                             value={values.Location}
                                             onChange={handleChange}
@@ -230,7 +230,7 @@ const ViewEventsScreen = () => {
                                         }
                                       >
                                         <Textarea
-                                          id="Description"
+                                          t-id="Description"
                                           placeholder="Description"
                                           color="gray.500"
                                           variant="flushed"
@@ -246,7 +246,7 @@ const ViewEventsScreen = () => {
                                         }
                                       >
                                         <Select
-                                          id="role"
+                                          t-id="role"
                                           placeholder="Event Type"
                                           // w={300}
                                           // m={2}
@@ -281,7 +281,7 @@ const ViewEventsScreen = () => {
                                         >
                                           <DateTimePicker
                                             //key="date"
-
+                                            t-id="st"
                                             label="StartTime"
                                             value={values.startTime}
                                             onChange={(value: any) =>
@@ -299,6 +299,7 @@ const ViewEventsScreen = () => {
                                         >
                                           <DateTimePicker
                                             //key="date"
+                                            t-id="et"
                                             label="EndTime"
                                             value={values.endTime}
                                             onChange={(value: any) =>
