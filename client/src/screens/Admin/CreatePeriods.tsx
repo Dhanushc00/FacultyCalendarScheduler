@@ -86,6 +86,7 @@ function CreatePeriods() {
         mt={5}
       >
         <Select
+          id="select_fac"
           placeholder="Select Faculty Username"
           w={"40vh"}
           value={username}
@@ -96,6 +97,7 @@ function CreatePeriods() {
           ))}
         </Select>
         <Select
+          id="select_sem"
           placeholder="Select Sem Id"
           w={"40vh"}
           value={sem}
