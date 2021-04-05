@@ -20,7 +20,7 @@ describe('Checking basic admin user management functionalities', ()=>{
         cy.get('[data-testid=submit]').click()
         cy.url().should('contain','/protected')
         cy.get('button').contains('VIEW ACCOUNTS').click()
-        cy.get('th').contains('UserName')
+        cy.get('td').contains('test_user_102')
     })
     //cy.get('div').should('have.class', 'chakra-input__group css-4302v8').and('have.css', 'color'. 'red')
 })

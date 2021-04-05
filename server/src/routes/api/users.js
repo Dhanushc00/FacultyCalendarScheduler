@@ -43,7 +43,7 @@ route.get("/allusers", userAuthViaToken, async (req, res) => {
   //console.log("in api "+req.body);
   try {
     const AllUsers = await allUsers({
-      email: req.body.user.email,
+      email: req.user.email,
     });
     //res.end("Hello");
     res.format ({
