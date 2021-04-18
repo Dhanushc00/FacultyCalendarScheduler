@@ -9,13 +9,15 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import ModifySemScreen from "../screens/Admin/ModifySemScreen";
+import ViewPeriods from '../screens/Faculty/ViewPeriods';
 import ModifyDayTypeScreen from "../screens/Admin/ModifyDayTypeScreen";
 import CalendarScreen from "../screens/Faculty/CalendarScreen";
 import CreatePeriods from "../screens/Admin/CreatePeriods";
 import Cookies from "js-cookie";
 
 function CalendarNav() {
-  let isAdmin = Cookies.get("role") == "Admin";
+  let isAdmin = Cookies.get("role") === "Admin";
+  let isFac = Cookies.get("role") === "Faculty";
   return (
     <>
       <Tabs
@@ -45,6 +47,16 @@ function CalendarNav() {
           >
             CALENDAR
           </Tab>
+          {isFac ? (
+            <Tab
+              my={1}
+              fontFamily="cursive"
+              fontWeight="600"
+              _focus={{ boxShadow: "none" }}
+            >
+              VIEW PERIODS
+            </Tab>
+          ) : null}
           {isAdmin ? (
             <Tab
               my={1}
@@ -81,6 +93,11 @@ function CalendarNav() {
           <TabPanel _focus={{ boxShadow: "none" }}>
             <CalendarScreen />
           </TabPanel>
+          {isFac ? (
+            <TabPanel>
+              <ViewPeriods />
+            </TabPanel>
+          ) : null}
           {isAdmin ? (
             <TabPanel>
               <ModifySemScreen />

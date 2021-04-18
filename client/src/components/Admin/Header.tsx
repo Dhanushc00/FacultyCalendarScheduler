@@ -125,7 +125,7 @@ const Header = () => {
         >
           Calendar
         </Button>
-        <Button
+        {/* <Button
           leftIcon={<TimeIcon mb={0.9} />}
           bg="#373b44"
           _hover={{ color: "#87898e" }}
@@ -139,7 +139,7 @@ const Header = () => {
           fontWeight="400"
         >
           Reminder
-        </Button>
+        </Button> */}
         <Button
           leftIcon={<ArrowForwardIcon mb={0.9} />}
           //bg="#373b44"
