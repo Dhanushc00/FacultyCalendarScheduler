@@ -58,6 +58,7 @@ function ModifyDayTypeScreen() {
       </Box>
 
       <Formik
+        key="modifydYTYPE"
         initialValues={InitialValues}
         onSubmit={(
           values: Iday,
@@ -170,7 +171,7 @@ function ModifyDayTypeScreen() {
         <Tbody>
           {Object.values(dayDetails).map((q) => {
             return (
-              <Tr>
+              <Tr key={q.date}>
                 <Td>{q.date}</Td>
                 <Td>
                   {q.type == "S"

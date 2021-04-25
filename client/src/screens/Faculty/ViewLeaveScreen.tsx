@@ -175,6 +175,7 @@ const ViewLeaveScreen = () => {
                       <PopoverBody>
                         {" "}
                         <Formik
+                        key="vieweventsscreen"
                           initialValues={q}
                           onSubmit={(
                             values: Ileave,

@@ -19,6 +19,8 @@ route.use('/events',require('./Events'))
 
 route.use('/leave',require('./applyLeave'))
 
+route.use('/rem',require('./reminder'))
+
 module.exports = route
 
 

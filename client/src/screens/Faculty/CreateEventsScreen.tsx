@@ -82,6 +82,7 @@ export default function EventsScreen() {
       h="80vh"
     >
       <Formik
+      key="createeventscreen"
         initialValues={InitialValues}
         onSubmit={(
           values: Ieventsend,

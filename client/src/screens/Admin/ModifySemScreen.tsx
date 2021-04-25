@@ -57,6 +57,7 @@ function ModifySemScreen() {
       </Box>
 
       <Formik
+      key="modifysemscreen"
         initialValues={InitialValues}
         onSubmit={(
           values: Isem,
@@ -233,7 +234,7 @@ function ModifySemScreen() {
         <Tbody>
           {Object.values(semDetails).map((q) => {
             return (
-              <Tr>
+              <Tr key={q.SemId}>
                 <Td>{q.SemId}</Td>
                 <Td>{q.startDate}</Td>
                 <Td>{q.endDate}</Td>

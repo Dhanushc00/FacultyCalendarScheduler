@@ -70,6 +70,7 @@ export default function EventsScreen() {
       h="80vh"
     >
       <Formik
+      key="applyleavescreen"
         initialValues={InitialValues}
         onSubmit={(
           values: Ileavesend,

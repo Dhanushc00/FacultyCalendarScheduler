@@ -124,6 +124,7 @@ const ViewEventsScreen = () => {
                           <PopoverBody>
                             {" "}
                             <Formik
+                            key="vieweventsscreen"
                               initialValues={ModifyData(q)}
                               onSubmit={(
                                 values: Ieventsend,

@@ -93,7 +93,7 @@ function CreatePeriods() {
           onChange={(val) => setUsername(val.target.value)}
         >
           {pk.username.map((q: string) => (
-            <option value={q}>{q}</option>
+            <option key={q} value={q}>{q}</option>
           ))}
         </Select>
         <Select
@@ -104,7 +104,7 @@ function CreatePeriods() {
           onChange={(val) => setSem(val.target.value)}
         >
           {pk.sem.map((q: string) => (
-            <option value={q}>{q}</option>
+            <option key={q} value={q}>{q}</option>
           ))}
         </Select>
         {/* <Button
@@ -117,6 +117,7 @@ function CreatePeriods() {
       </Box>
       <Box>
         <Formik
+        key="createperiods"
           initialValues={InitialValues}
           onSubmit={(
             values: IperiodInput,
@@ -168,7 +169,7 @@ function CreatePeriods() {
                 </Box>
                 <Table variant="unstyled" border="1px" m={2}>
                   <Thead>
-                    <Tr>
+                    <Tr key="esfubjkdih">
                       <Th>Day</Th>
                       <Th>Course Code</Th>
                       <Th>Start Time</Th>
@@ -177,7 +178,7 @@ function CreatePeriods() {
                   </Thead>
 
                   <Tbody>
-                    <Tr>
+                    <Tr key="rejirgks">
                       <Td isNumeric>
                         <FormControl
                           isInvalid={
@@ -265,7 +266,7 @@ function CreatePeriods() {
         </Formik>
         <Table variant="unstyled" border="1px" m={2}>
           <Thead>
-            <Tr>
+            <Tr key="arefsouj93">
               <Th>Day</Th>
               <Th>Start Time</Th>
               <Th>End Time</Th>
@@ -275,7 +276,7 @@ function CreatePeriods() {
           </Thead>
           <Tbody>
             {Object.values(periods).map((q) => (
-              <Tr>
+              <Tr key={q.periodId}>
                 <Td>{Moment(q.startTime).format("dddd")}</Td>
                 <Td>{Moment(q.startTime).format("h:mm a")}</Td>
                 <Td>{Moment(q.endTime).format("h:mm a")}</Td>

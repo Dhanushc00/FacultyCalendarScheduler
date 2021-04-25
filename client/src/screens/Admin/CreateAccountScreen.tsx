@@ -76,6 +76,7 @@ export default function CreateAccountScreen() {
           {/* <AvatarBadge boxSize="1.25em" /> */}
         </Avatar>
         <Formik
+          key="CreateAccount"
           initialValues={InitialValues}
           onSubmit={(
             values: ICreateAccount,

@@ -79,6 +79,7 @@ const SignInScreen = () => {
           SIGN-IN
         </Text>
         <Formik
+        key={"SignIn"}
           initialValues={InitialValues}
           onSubmit={(
             values: Icredentials,

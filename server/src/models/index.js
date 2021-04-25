@@ -167,6 +167,12 @@ const Leaves = db.define('leavedetails',{
   }
 });
 
+const ReminderEvents= db.define('ReminderEvents',{
+    time:{
+      type: Sequelize.DataTypes.DATE
+    }
+})
+
 Users.hasMany(Leaves);
 Leaves.belongsTo(Users);
 
@@ -179,6 +185,12 @@ ClassPeriods.belongsTo(Sem);
 Events.belongsToMany(Users,{through: 'EventParticipant'});
 Users.belongsToMany(Events,{through: 'EventParticipant'});
 
+Events.hasMany(ReminderEvents);
+ReminderEvents.belongsTo(Events);
+
+Users.hasMany(ReminderEvents);
+ReminderEvents.belongsTo(Users);
+
 
 module.exports = {
   db,
@@ -187,6 +199,7 @@ module.exports = {
   Sem,
   ClassPeriods,
   Calendar,
-  Leaves
+  Leaves,
+  ReminderEvents
 };
 // db.authenticate().then(()=> 'Database conected').catch((err)=>console.log(err))

@@ -30,7 +30,7 @@ function CalendarNav() {
       >
         <TabList
           flexDirection="column"
-          w={"60vh"}
+          w={"40vh"}
           h="90vh"
           //bg="blue.200"
           //divider={<StackDivider w="1" borderColor="gray.200" />}

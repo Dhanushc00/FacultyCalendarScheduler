@@ -84,6 +84,7 @@ const ParticipantScreen = () => {
 
             <AlertDialogBody>
               <Formik
+              key="participantscreen"
                 initialValues={data}
                 onSubmit={(
                   values: Ieventsend,
