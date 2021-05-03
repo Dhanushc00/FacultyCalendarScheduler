@@ -1,8 +1,9 @@
 import axios from "axios";
 import React from 'react';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+const baseURL = process.env.NODE_ENV==="production" ? "api" :"http://localhost:3012/api" ;
 export const api = axios.create({
-  baseURL: "http://localhost:3012/api",
+  baseURL,
 });
 api.interceptors.request.use(async(req)=>{
       let jwt=Cookies.get("token")
