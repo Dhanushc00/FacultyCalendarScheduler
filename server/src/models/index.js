@@ -6,6 +6,7 @@ const db = new Sequelize({
   password: "123456789",
   host: "localhost",
   dialect: "postgres",
+  port:"5432",
   operatorAliases: false,
   pool: {
     max: 5,
