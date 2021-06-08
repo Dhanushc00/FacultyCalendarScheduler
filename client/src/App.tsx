@@ -37,11 +37,11 @@ export const theme = extendTheme({
 const App = () => {
   return (
     <Provider store={store}>
-      <ChakraProvider theme={theme}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <AuthRoute />
-        </MuiPickersUtilsProvider>
-      </ChakraProvider>
+        <ChakraProvider theme={theme}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <AuthRoute />
+          </MuiPickersUtilsProvider>
+        </ChakraProvider>
     </Provider>
   );
 };

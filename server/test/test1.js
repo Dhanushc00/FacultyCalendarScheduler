@@ -70,7 +70,7 @@ describe('POST /src/routes/api/users', () => {
 
 */
 
-
+/*
 describe('POST /src/routes/api/users/login', () => {
   it('should respond with success on post login', function(done) {
     console.log("Sasmithaae");
@@ -102,7 +102,7 @@ describe('POST /src/routes/api/users/login', () => {
   });
   });
 
-
+*/
 /*
 describe('GET /src/routes/api/users/allusers', () => {
   it('should respond with success on get', (done) => {
@@ -684,30 +684,30 @@ describe('put /src/routes/api/applyLeave', () => {
           
 
 
-        describe('GET /src/routes/api/events', () => {
-          it('should respond with json on get view',function (done)  {
-            console.log("in test event view ");
-            console.log("token " + token);
+        // describe('GET /src/routes/api/events', () => {
+        //   it('should respond with json on get view',function (done)  {
+        //     console.log("in test event view ");
+        //     console.log("token " + token);
             
         
          
-            request(eventserver).get('/').set({ 'Authorization': 'Token ' + token }).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  console.log("Output events");
-                  console.log(res.body);
-                  done();
-                }
+        //     request(eventserver).get('/').set({ 'Authorization': 'Token ' + token }).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           console.log("Output events");
+        //           console.log(res.body);
+        //           done();
+        //         }
                 
                
           
-                 });
+        //          });
               
-          });
-          });
+        //   });
+        //   });
          /* 
 
          describe('DELETE /src/routes/api/ACal', () => {

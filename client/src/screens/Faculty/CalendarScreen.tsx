@@ -1,4 +1,5 @@
 import React from "react";
+import '../../calender.css';
 import {
   useToast,
   Box,
@@ -26,7 +27,7 @@ import { getLeave } from "../../store/applyLeave/leaveReducer";
 import { api } from "../../store/api";
 import moment from "moment";
 import {getnotification} from '../../store/notification/notification' 
-require("react-big-calendar/lib/css/react-big-calendar.css");
+// require("react-big-calendar/lib/css/react-big-calendar.css");
 
 const localizer = momentLocalizer(moment);
 const CalendarScreen = () => {

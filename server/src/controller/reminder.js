@@ -27,7 +27,7 @@ const getReminder = async (username) => {
   let endDate = new Date();
   //let endDate=moment('Mon Mar 09 2021 10:40:01 GMT+0530 (India Standard Time)').toISOString();
   //console.log(endDate);
-  let startDate = moment(endDate).subtract(2, "days").toISOString();
+  let startDate = moment(endDate).subtract(5, "minutes").toISOString();
   console.log(endDate, startDate);
   const reminders = await ReminderEvents.findAll({
     where: {
