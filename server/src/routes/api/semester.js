@@ -55,6 +55,7 @@ route.delete("/",userAuthViaToken,async(req, res) => {
         res.send(sems);
     }catch(e){
         console.log(e);
+        res.status(401).send({message: e});
     }
         
 });
