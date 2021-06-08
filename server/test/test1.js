@@ -37,17 +37,15 @@ let token = 'some_authorization_token';
 
 
 
-
 console.log("Test");
-/*
+
 describe('POST /src/routes/api/users', () => {
   it('should respond with object on post create', function(done) {
-    console.log("Sasmithaae");
     var data = 
   
       {
-        "username" : "FAC29",
-          "email"    :"sandy@gmail.com",
+        "username" : "JD",
+          "email"    :"JDmaster@gmail.com",
           "roles"    : ["Faculty","Admin"]
     }
     request(server).post('/').send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
@@ -68,17 +66,16 @@ describe('POST /src/routes/api/users', () => {
   });
   });
 
-*/
 
-/*
+
+
 describe('POST /src/routes/api/users/login', () => {
   it('should respond with success on post login', function(done) {
-    console.log("Sasmithaae");
     var data = 
   {"user": 
       {
         
-          "email"    :"aishu18@gmail.com",
+          "email"    :"JDmaster@gmail.com",
           "password":"123",
           "role"    : "Faculty"
     }
@@ -102,7 +99,7 @@ describe('POST /src/routes/api/users/login', () => {
   });
   });
 
-*/
+
 /*
 describe('GET /src/routes/api/users/allusers', () => {
   it('should respond with success on get', (done) => {
@@ -326,7 +323,7 @@ describe('put /src/routes/api/applyLeave', () => {
 
 
   /* Semester Unit Testing */
-/*
+
   describe('POST /src/routes/api/semester', () => {
     it('should respond with object on post create',function (done)  {
       console.log("in test semester ");
@@ -356,8 +353,8 @@ describe('put /src/routes/api/applyLeave', () => {
         
     });
     });
-*/
-/*
+
+
     describe('GET /src/routes/api/semester', () => {
       it('should respond with object on post create',function (done)  {
         console.log("in test semester ");
@@ -389,36 +386,33 @@ describe('put /src/routes/api/applyLeave', () => {
       });
 
 
-      describe('DELETE /src/routes/api/semester', () => {
-        it('should respond with object on post create',function (done)  {
-          console.log("in test semester ");
-          console.log("token " + token);
-          var data = 
+      // describe('DELETE /src/routes/api/semester', () => {
+      //   it('should respond with object on post create',function (done)  {
+      //     console.log("in test semester ");
+      //     console.log("token " + token);
+      //     var data = 
         
-          {
-            "SemId": "SEM_1_2019",
-            "startDate": "2018-07-06",
-            "endDate": "2018-11-15",
-            "semNo": "2"
-        }
-          request(semesterserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-            console.log("the body " +res.body);
-              if (err){
-               done(err);
-              }
-              else{
-                console.log("Output semester");
-                console.log(res.body);
-                done();
-              }
-              
-              //done();
-        
-               });
+      //     {
+      //       "SemId": "SEM_1_2019",
+      //       "startDate": "2018-07-06",
+      //       "endDate": "2018-11-15",
+      //       "semNo": "2"
+      //   }
+      //     request(semesterserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+      //       console.log("the body " +res.body);
+      //         if (err){
+      //          done(err);
+      //         }
+      //         else{
+      //           console.log("Output semester");
+      //           console.log(res.body);
+      //           done();
             
-        });
-        });
-        */
+      //          });
+            
+      //   });
+      //   });
+        
 
         /* Class Periods Unit Testing*/
 
