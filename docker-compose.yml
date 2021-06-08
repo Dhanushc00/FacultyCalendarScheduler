@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  backend:
+
+    build:
+
+      context: ./server
+
+      dockerfile: ./Dockerfile
+
+    image: "sasmithaa1/fcs"
+
+    ports:
+
+      - "3012:3012"
+
+  frontend:
+
+    build:
+
+      context: ./client
+
+      dockerfile: ./Dockerfile
+
+    image: "sasmithaa1/fcs1"
+    ports:
+      - "3000:3000"
+    links:
+      - "backend:be"
+
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - '5438:5432'
+    environment:
+      - POSTGRES_DB=fcsdb
+      - POSTGRES_USER=fcsadmin
+      - POSTGRES_PASSWORD=123456789

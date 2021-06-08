@@ -60,6 +60,7 @@ const updateEvent=async(EventOpts,FId,roles)=>{
       where: {EventId:EventOpts.EventId}
     })
     await event.update({...EventOpts});
+    await event.setUsers(EventOpts.Participants);
     const events4 = await Events.findAll(
       {
         where: { creator: FId },

@@ -13,7 +13,7 @@ route.post("/", userAuthViaToken, async (req, res) => {
     const evnts = await createReminder(
       req.body,
       req.user.username,
-      req.user.roles
+      req.user.roles  
     );
     res.send({ message: evnts });
   } catch (e) {

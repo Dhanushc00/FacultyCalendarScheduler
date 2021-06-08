@@ -1,4 +1,7 @@
 module.exports = {
+  moduleNameMapper: {
+    '\\.(css|less)$': '<rootDir>/src/__tests__/styleMock.js'
+  },
     // The root of your source code, typically /src
     // `<rootDir>` is a token Jest substitutes
     roots: ["<rootDir>/src"],
