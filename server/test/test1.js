@@ -24,6 +24,7 @@ const semesterserver = require('../src/routes/api/semester');
 const cpserver= require('../src/routes/api/classperiods');
 const calserver = require('../src/routes/api/ACalendar');
 const eventserver = require('../src/routes/api/Events');
+const reminderserver=require('../src/routes/api/reminder');
 faker = require('faker'),
 should = chai.should();
 var assert = require('assert');
@@ -39,32 +40,32 @@ let token = 'some_authorization_token';
 
 console.log("Test");
 
-describe('POST /src/routes/api/users', () => {
-  it('should respond with object on post create', function(done) {
-    var data = 
+// describe('POST /src/routes/api/users', () => {
+//   it('should respond with object on post create', function(done) {
+//     var data = 
   
-      {
-        "username" : "JD",
-          "email"    :"JDmaster@gmail.com",
-          "roles"    : ["Faculty","Admin"]
-    }
-    request(server).post('/').send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
-      //console.log(res);
-        if (err){
-         done(err);
-        }
-        else{
-          console.log("Output create user");
-          console.log(res.body);
-          done();
-        }
+//       {
+//         "username" : "JD",
+//           "email"    :"JDmaster@gmail.com",
+//           "roles"    : ["Faculty","Admin"]
+//     }
+//     request(server).post('/').send(data).expect(200).expect('Content-Type', /json/).end(function(err, res) {
+//       //console.log(res);
+//         if (err){
+//          done(err);
+//         }
+//         else{
+//           console.log("Output create user");
+//           console.log(res.body);
+//           done();
+//         }
         
-        //done();
+//         //done();
   
-         });
+//          });
       
-  });
-  });
+//   });
+//   });
 
 
 
@@ -95,7 +96,7 @@ describe('POST /src/routes/api/users/login', () => {
       }     
   
          });
-      //done();
+
   });
   });
 
@@ -324,66 +325,66 @@ describe('put /src/routes/api/applyLeave', () => {
 
   /* Semester Unit Testing */
 
-  describe('POST /src/routes/api/semester', () => {
-    it('should respond with object on post create',function (done)  {
-      console.log("in test semester ");
-      console.log("token " + token);
-      var data = 
+  // describe('POST /src/routes/api/semester', () => {
+  //   it('should respond with object on post create',function (done)  {
+  //     console.log("in test semester ");
+  //     console.log("token " + token);
+  //     var data = 
     
-      {
-        "SemId": "SEM_1_2019",
-        "startDate": "2018-07-06",
-        "endDate": "2018-11-15",
-        "semNo": "2"
-    }
-      request(semesterserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-        console.log("the body " +res.body);
-          if (err){
-           done(err);
-          }
-          else{
-            console.log("Output semester");
-            console.log(res.body);
-            done();
-          }
+  //     {
+  //       "SemId": "SEM_1_2019",
+  //       "startDate": "2018-07-06",
+  //       "endDate": "2018-11-15",
+  //       "semNo": "2"
+  //   }
+  //     request(semesterserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+  //       console.log("the body " +res.body);
+  //         if (err){
+  //          done(err);
+  //         }
+  //         else{
+  //           console.log("Output semester");
+  //           console.log(res.body);
+  //           done();
+  //         }
           
-          //done();
+  //         //done();
     
-           });
+  //          });
         
-    });
-    });
+  //   });
+  //   });
 
 
-    describe('GET /src/routes/api/semester', () => {
-      it('should respond with object on post create',function (done)  {
-        console.log("in test semester ");
-        console.log("token " + token);
-        var data = 
+  //   describe('GET /src/routes/api/semester', () => {
+  //     it('should respond with object on post create',function (done)  {
+  //       console.log("in test semester ");
+  //       console.log("token " + token);
+  //       var data = 
       
-        {
-          "SemId": "SEM_1_2019",
-          "startDate": "2018-07-06",
-          "endDate": "2018-11-15",
-          "semNo": "2"
-      }
-        request(semesterserver).get('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-          console.log("the body " +res.body);
-            if (err){
-             done(err);
-            }
-            else{
-              console.log("Output semester");
-              console.log(res.body);
-              done();
-            }
+  //       {
+  //         "SemId": "SEM_1_2019",
+  //         "startDate": "2018-07-06",
+  //         "endDate": "2018-11-15",
+  //         "semNo": "2"
+  //     }
+  //       request(semesterserver).get('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+  //         console.log("the body " +res.body);
+  //           if (err){
+  //            done(err);
+  //           }
+  //           else{
+  //             console.log("Output semester");
+  //             console.log(res.body);
+  //             done();
+  //           }
             
-            //done();
+  //           //done();
       
-             });
+  //            });
           
-      });
-      });
+  //     });
+  //     });
 
 
       // describe('DELETE /src/routes/api/semester', () => {
@@ -407,9 +408,8 @@ describe('put /src/routes/api/applyLeave', () => {
       //           console.log("Output semester");
       //           console.log(res.body);
       //           done();
-            
+      //         }
       //          });
-            
       //   });
       //   });
         
@@ -548,133 +548,116 @@ describe('put /src/routes/api/applyLeave', () => {
             /* Academic Calendar Days  Unit Testing*/
 
 
-/*
-        describe('POST /src/routes/api/ACal', () => {
-          it('should respond with json on post create',function (done)  {
-            console.log("in test days create ");
-            console.log("token " + token);
-            var data = 
+
+        // describe('POST /src/routes/api/ACal', () => {
+        //   it('should respond with json on post create',function (done)  {
+        //     console.log("in test days create ");
+        //     console.log("token " + token);
+        //     var data = 
           
-            {
-              "date": "2018-01-05",
-              "type": "W"
-          }
-            request(calserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  console.log("Output days");
-                  console.log(res.body);
-                  done();
-                }
-                
-                //done();
-          
-                 });
+        //     {
+        //       "date": "2021-06-15",
+        //       "type": "W"
+        //   }
+        //     request(calserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           console.log("Output days");
+        //           console.log(res.body);
+        //           done();
+        //         }
+        //          });
               
-          });
-          });
+        //   });
+        //   });
 
           
 
 
-        describe('GET /src/routes/api/ACal', () => {
-          it('should respond with json on get view',function (done)  {
-            console.log("in test calendar view ");
-            console.log("token " + token);
-            var data = 
+        // describe('GET /src/routes/api/ACal', () => {
+        //   it('should respond with json on get view',function (done)  {
+        //     console.log("in test calendar view ");
+        //     console.log("token " + token);
+        //     var data = 
           
-            {
-              "date":"2018-01-01"
-          }
-            request(calserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  console.log("Output days");
-                  console.log(res.body);
-                  done();
-                }
-                
-                //done();
+        //     {
+        //       "date":"2021-06-15"
+        //   }
+        //     request(calserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           console.log("Output days");
+        //           console.log(res.body);
+        //           done();
+        //         }
+        //          });  
+        //   });
+        //   });
+        //  describe('DELETE /src/routes/api/ACal', () => {
+        //   it('should respond with json on delete route',function (done)  {
+        //     console.log("in test class periods delete ");
+        //     console.log("token " + token);
+        //     var data = 
           
-                 });
-              
-          });
-          });
-          
+        //     {
+        //       "date":"2018-01-03"
+        //   }
+        //     request(calserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           console.log("Output days");
+        //           console.log(res.body);
+        //           done();
+        //         }
+        //         });
+        //   });
+        //   });
 
-         describe('DELETE /src/routes/api/ACal', () => {
-          it('should respond with json on delete route',function (done)  {
-            console.log("in test class periods delete ");
-            console.log("token " + token);
-            var data = 
-          
-            {
-              "date":"2018-01-03"
-          }
-            request(calserver).delete('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  console.log("Output days");
-                  console.log(res.body);
-                  done();
-                }
-                
-                //done();
-          
-                 });
-              
-          });
-          });
-
-         */
-
+  
 
          /* Event Module Unit Testing*/
-/*
 
-         describe('POST /src/routes/api/events', () => {
-          it('should respond with json on post create',function (done)  {
-            console.log("in test days create ");
-            console.log("token " + token);
-            var data = 
+
+        //  describe('POST /src/routes/api/events', () => {
+        //   it('should respond with json on post create',function (done)  {
+        //     console.log("in test days create ");
+        //     console.log("token " + token);
+        //     var data = 
           
-            {
-              "creator": "FAC18",
-              "startTime": "2021-05-12 16:00:49.349 +00:00",
-              "endTime": "2021-05-13 16:00:49.349 +00:00",
-              "EventName": "Post hello",
-              "Description": ""  ,
-              "type": "Misc",
-              "Location": "Canteen",
-              "Participants": ["FAC18",'FAC25']
-            }
-            request(eventserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  console.log("Output events");
-                  console.log(res.body);
-                  done();
-                }
-                
-                //done();
-          
-                 });
+        //     {
+        //       "creator": "JD",
+        //       "startTime": "2021-06-18 16:00:49.349 +00:00",
+        //       "endTime": "2021-06-20 16:00:49.349 +00:00",
+        //       "EventName": "Post hello",
+        //       "Description": ""  ,
+        //       "type": "Misc",
+        //       "Location": "Canteen",
+        //       "Participants": ["balaji",'admin']
+        //     }
+        //     request(eventserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           console.log("Output events");
+        //           console.log(res.body);
+        //           done();
+        //         }
+        //          });
               
-          });
-          });
-*/
+        //   });
+        //   });
+
           
 
 
@@ -768,3 +751,84 @@ describe('put /src/routes/api/applyLeave', () => {
           });
           });
           */
+/* reminder module */
+         
+        describe('POST /src/routes/api/reminder', () => {
+          it('Successful post status 200 OK, with token',function (done)  {
+            // console.log("token " + token);
+            var data = 
+            {
+              "time":"2021-05-08 16:00:49.349 +00:00",
+              "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
+            }
+            request(reminderserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              // console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  // console.log(res.body);
+                  done();
+                }
+                }); 
+          });
+          });
+          describe('POST /src/routes/api/reminder', () => {
+            it('Failed testcase with no token, 400 BAD REQUEST ',function (done)  {
+              // console.log("token " + token);
+              var data = 
+              {
+                "time":"2021-05-08 16:00:49.349 +00:00",
+                "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
+              }
+              request(reminderserver).post('/').send(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
+                // console.log("the body " +res.body);
+                  if (err){
+                   done(err);
+                  }
+                  else{
+                    // console.log(res.body);
+                    done();
+                  }
+                  }); 
+            });
+            });
+            describe('POST /src/routes/api/reminder', () => {
+              it('Failed testcase with insufficient data to post, 400 BAD REQUEST ',function (done)  {
+                // console.log("token " + token);
+                var data = 
+                {
+                  "time":"2021-05-08 16:00:49.349 +00:00",
+                  // "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
+                }
+                request(reminderserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(401).expect('Content-Type', /json/).end(function (err, res) {
+                  // console.log("the body " +res.body);
+                    if (err){
+                     done(err);
+                    }
+                    else{
+                      // console.log(res.body);
+                      done();
+                    }
+                    }); 
+              });
+              });
+        
+        describe('GET /src/routes/api/reminder', () => {
+          it('should respond with json on get view',function (done)  {
+            var data = 
+            {
+              "username":"JD"
+          }
+            request(reminderserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+              // console.log("the body " +res.body);
+                if (err){
+                 done(err);
+                }
+                else{
+                  // console.log(res.body);
+                  done();
+                }
+                 });  
+          });
+          });

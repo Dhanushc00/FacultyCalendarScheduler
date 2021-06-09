@@ -1,0 +1,3883 @@
+{
+	"info": {
+		"_postman_id": "721b5861-d5ab-441f-9df6-648636da6031",
+		"name": "__T1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin005\",\r\n    \"email\": \"admin005@admin.com\",\r\n    \"password\": \"123\",\r\n    \"roles\": [\"Admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"faculty001\",\r\n    \"email\": \"faculty001@admin.com\",\r\n    \"password\": \"123\",\r\n    \"roles\": [\"Faculty\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin003\",\r\n    \"email\": \"admin003@admin.com\",\r\n    \"password\": \"123\",\r\n    \"roles\": [\"Admin\",\"Faculty\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin003\",\r\n    \"email\": \"admin001@admin.com\",\r\n    \"password\": \"123\",\r\n    \"roles\": [\"Admin\",\"Faculty\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin005\",\r\n    \"email\": \"admin015@admin.com\",\r\n    \"password\": \"123\",\r\n    \"roles\": [\"abc\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin012\",\r\n    \"email\": \"admin012@admin.com\",\r\n    \"password\": \"123\",\r\n    \"roles\": [\"xyz\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"admin005@admin.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"Admin\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"faculty001@admin.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"Faculty\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"admin999@admin.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"Faculty\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"admin001@admin.com\",\r\n    \"password\": \"xyz\",\r\n    \"role\": \"Admin\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"admin002@admin.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"xyz\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"faculty001@admin.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"Admin\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\",jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\r\n    \"email\": \"admin005@admin.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"Faculty\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":  {    \r\n      \"email\"    :\"admin005@admin.com\",\r\n      \"password\":\"123\",      \r\n      \"roles\"    : [\"Admin\"]\r\n} }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/allusers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"allusers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":  {    \r\n      \"email\"    :\"faculty001@admin.com\",\r\n      \"password\":\"123\",      \r\n      \"roles\"    : [\"Faculty\"]\r\n} }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/allusers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"allusers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":  {    \r\n      \"email\"    :\"admin115@admin.com\",\r\n      \"password\":\"123\",      \r\n      \"roles\"    : [\"Admin\"]\r\n} }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/allusers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"allusers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":  {    \r\n      \"email\"    :\"admin2@admin.com\",\r\n      \"password\":\"123\",      \r\n      \"roles\"    : [\"Admin\"]\r\n} }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/users/allusers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"users",
+						"allusers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"2021-10-01\",\r\n    \"todate\":\"2021-10-01\",\r\n    \"leavetype\":\"Normal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"2021-10-02\",\r\n    \"todate\":\"2021-10-02\",\r\n    \"leavetype\":\"Medical\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"2021-10-03\",\r\n    \"todate\":\"2021-10-03\",\r\n    \"leavetype\":\"Duty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"2021-05-01\",\r\n    \"todate\":\"2021-05-01\",\r\n    \"leavetype\":\"xyz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"xyz\",\r\n    \"todate\":\"2021-09-01\",\r\n    \"leavetype\":\"Normal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"09-02-2021\",\r\n    \"todate\":\"xyz\",\r\n    \"leavetype\":\"Normal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply_leave7",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromdate\": \"09-02-2021\",\r\n    \"todate\":\"xyz\",\r\n    \"leavetype\":\"Normal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_leave1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_leave2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"2021-11-20\",\r\n        \"todate\": \"2021-11-20\",\r\n        \"leavetype\": \"Normal\",\r\n        \"userUsername\": \"admin2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"2021-11-20\",\r\n        \"todate\": \"2021-11-20\",\r\n        \"leavetype\": \"Medical\",\r\n        \"userUsername\": \"admin1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"2021-11-20\",\r\n        \"todate\": \"2021-11-20\",\r\n        \"leavetype\": \"Duty\",\r\n        \"userUsername\": \"admin1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave4",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"2021-11-20\",\r\n        \"todate\": \"2021-11-20\",\r\n        \"leavetype\": \"xyz\",\r\n        \"userUsername\": \"admin1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave5",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"xyz\",\r\n        \"todate\": \"2021-11-20\",\r\n        \"leavetype\": \"Normal\",\r\n        \"userUsername\": \"admin1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave6",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"2021-11-20\",\r\n        \"todate\": \"xyz\",\r\n        \"leavetype\": \"Normal\",\r\n        \"userUsername\": \"admin1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_leave7",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"Leaveid\": \"a8e42537-0828-4aee-b281-35cbb7295093\",\r\n        \"fromdate\": \"2021-11-20\",\r\n        \"todate\": \"2021-11-20\",\r\n        \"leavetype\": \"Normal\",\r\n        \"userUsername\": \"admin2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_leave1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave?Leaveid=a8e42537-0828-4aee-b281-35cbb7295093",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "Leaveid",
+							"value": "a8e42537-0828-4aee-b281-35cbb7295093"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_leave2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave?Leaveid=a8e42537-0828-4aee-b281-35cbb7295093",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "Leaveid",
+							"value": "a8e42537-0828-4aee-b281-35cbb7295093"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_leave3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/leave?Leaveid=4954a89d-1293-4097-973d-7f793b567369",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"leave"
+					],
+					"query": [
+						{
+							"key": "Leaveid",
+							"value": "4954a89d-1293-4097-973d-7f793b567369"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_sem1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SemId\": \"SEM_1_2017\",\r\n    \"startDate\": \"2017-06-06\",\r\n    \"endDate\": \"2017-11-15\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_sem2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SemId\": \"SEM_1_2017\",\r\n    \"startDate\": \"2017-06-06\",\r\n    \"endDate\": \"2018-11-15\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_sem5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SemId\": \"SEM_6_2018\",\r\n    \"startDate\": \"2020-11-06\",\r\n    \"endDate\": \"2021-04-15\",\r\n    \"semNo\": \"9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_sem3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SemId\": \"SEM_7_2018\",\r\n    \"startDate\": \"xyz\",\r\n    \"endDate\": \"2019-04-15\",\r\n    \"semNo\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_sem4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SemId\": \"SEM_7_2018\",\r\n    \"startDate\": \"2019-04-15\",\r\n    \"endDate\": \"xyz\",\r\n    \"semNo\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_sem6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SemId\": \"SEM_1_2018\",\r\n    \"startDate\": \"2018-06-06\",\r\n    \"endDate\": \"2019-11-15\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_sem1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"2018-08-01\",\r\n    \"endDate\": \"2018-11-11\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_sem2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"2018-08-09\",\r\n    \"endDate\": \"2018-11-19\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_2_2025",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_2_2025"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_sem3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"xyz\",\r\n    \"endDate\": \"2018-11-19\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_sem4",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"2018-11-19\",\r\n    \"endDate\": \"xyz\",\r\n    \"semNo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_sem5",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"2018-07-19\",\r\n    \"endDate\": \"2018-11-19\",\r\n    \"semNo\": \"9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_sem6",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"2018-07-19\",\r\n    \"endDate\": \"2018-11-19\",\r\n    \"semNo\": \"9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_sem1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_sem2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_1_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_1_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_sem3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=xyz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "xyz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_sem4",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/sem/?SemId=SEM_6_2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"sem",
+						""
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_6_2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_date1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2020-06-01\",\r\n    \"type\": \"S\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_date2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2020-06-02\",\r\n    \"type\": \"W\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_date3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2020-06-03\",\r\n    \"type\": \"H\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_date4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2020-06-04\",\r\n    \"type\": \"x\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_date5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"xyz\",\r\n    \"type\": \"S\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_date6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2020-01-01\",\r\n    \"type\": \"S\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calendar_details1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calendar_details2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/ACal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_date1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/ACal?date=2020-06-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_date2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/ACal?date=2020-06-02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_date3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/ACal?date=2020-06-03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_date4",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/ACal?date=2020-06-03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_date5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/ACal?date=xyz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "xyz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_date6",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/ACal?date=2021-07-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"ACal"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2021-07-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_periods1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n    \"endTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n    \"courseCode\":\"15CSE313\",\r\n    \"userUsername\": \"admin005\",\r\n    \"semesterSemId\": \"SEM_3_2018\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_periods2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\": \"2022-11-01 16:00:49.349 +00:00\",\r\n    \"endTime\": \"2022-11-01 16:00:49.349 +00:00\",\r\n    \"courseCode\":\"15cse313\",\r\n    \"userUsername\": \"admin005\",\r\n    \"semesterSemId\": \"xyz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_periods3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n    \"endTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n    \"courseCode\":\"15CSE313\",\r\n    \"userUsername\": \"xyz\",\r\n    \"semesterSemId\": \"SEM_2_2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_periods4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\": \"xyz\",\r\n    \"endTime\": \"2022-11-01 16:00:49.349 +00:00\",\r\n    \"courseCode\":\"15cse313\",\r\n    \"userUsername\": \"admin005\",\r\n    \"semesterSemId\": \"SEM_5_2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_periods5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\": \"2022-11-01 16:00:49.349 +00:00\",\r\n    \"endTime\": \"xyz\",\r\n    \"courseCode\":\"15CSE313\",\r\n    \"userUsername\": \"admin005\",\r\n    \"semesterSemId\": \"SEM_2_2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_periods6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n    \"endTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n    \"courseCode\":\"15CSE313\",\r\n    \"userUsername\": \"admin005\",\r\n    \"semesterSemId\": \"SEM_3_2018\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read_periods1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?SemId=SEM_3_2018&FId=admin005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_3_2018"
+						},
+						{
+							"key": "FId",
+							"value": "admin005"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read_periods2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?SemId=SEM_2_2028&FId=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_2_2028"
+						},
+						{
+							"key": "FId",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read_periods3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?SemId=SEM_2_2022&FId=admin75",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "FId",
+							"value": "admin75"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read_periods4",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?FId=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_2_2022",
+							"disabled": true
+						},
+						{
+							"key": "FId",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read_periods5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?SemId=SEM_2_2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "FId",
+							"value": "admin1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read_periods6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?SemId=SEM_2_2022&FId=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "SemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "FId",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=2786f8e9-13a6-4289-b242-28431a313dea&semesterSemId=SEM_3_2018&userUsername=admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "2786f8e9-13a6-4289-b242-28431a313dea"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_3_2018"
+						},
+						{
+							"key": "userUsername",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=2786f8e9-13a6-4289-b242-28431a313dea&semesterSemId=SEM_2_2022&userUsername=admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "2786f8e9-13a6-4289-b242-28431a313dea"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "userUsername",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=bda566a8-5d54-4391-baaf-95e27132a6de&semesterSemId=xyzy&userUsername=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "bda566a8-5d54-4391-baaf-95e27132a6de"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "xyzy"
+						},
+						{
+							"key": "userUsername",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods4",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=bda566a8-5d54-4391-baaf-95e27132a6de&semesterSemId=SEM_2_2022&userUsername=xyz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "bda566a8-5d54-4391-baaf-95e27132a6de"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "userUsername",
+							"value": "xyz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?semesterSemId=SEM_2_2022&userUsername=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "bda566a8-5d54-4391-baaf-95e27132a6de",
+							"disabled": true
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "userUsername",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods6",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=bda566a8-5d54-4391-baaf-95e27132a6de&userUsername=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "bda566a8-5d54-4391-baaf-95e27132a6de"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_2_2022",
+							"disabled": true
+						},
+						{
+							"key": "userUsername",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods7",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=bda566a8-5d54-4391-baaf-95e27132a6de&semesterSemId=SEM_2_2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "bda566a8-5d54-4391-baaf-95e27132a6de"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "userUsername",
+							"value": "admin1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_periods8",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/CPeriods?periodId=bda566a8-5d54-4391-baaf-95e27132a6de&semesterSemId=SEM_2_2022&userUsername=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"CPeriods"
+					],
+					"query": [
+						{
+							"key": "periodId",
+							"value": "bda566a8-5d54-4391-baaf-95e27132a6de"
+						},
+						{
+							"key": "semesterSemId",
+							"value": "SEM_2_2022"
+						},
+						{
+							"key": "userUsername",
+							"value": "admin1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"startTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n  \"endTime\": \"2021-11-01 16:00:49.349 +00:00\",\r\n  \"EventName\": \"Anokha\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"Misc\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"faculty\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"startTime\": \"2021-11-02 16:00:49.349 +00:00\",\r\n  \"endTime\": \"2021-11-02 16:00:49.349 +00:00\",\r\n  \"EventName\": \"Anokha\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"Exam\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"startTime\": \"2021-11-03 16:00:49.349 +00:00\",\r\n  \"endTime\": \"2021-11-03 16:00:49.349 +00:00\",\r\n  \"EventName\": \"Anokha\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"Meeting\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"admin1\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"startTime\": \"2017-11-01 16:00:49.349 +00:00\",\r\n  \"endTime\": \"2017-11-01 16:00:49.349 +00:00\",\r\n  \"EventName\": \"Anokha2\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"Misc\",\r\n  \"Location\": \"AB-2\",\r\n  \"Participants\": [\"Faculty\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"creator\": \"admin\",\r\n  \"startTime\": \"xyz\",\r\n  \"endTime\": \"2017-11-01 16:00:49.349 +00:00\",\r\n  \"EventName\": \"Anokha2\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"Misc\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"startTime\": \"2017-11-01 16:00:49.349 +00:00\",\r\n  \"endTime\": \"xyz\",\r\n  \"EventName\": \"Anokha2\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"Exam\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event7",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"startTime\": \"2017-11-01 16:00:49.349 +00:00\",\r\n  \"endTime\": \"2017-11-02 16:00:49.349 +00:00\",\r\n  \"EventName\": \"Anokha2\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"xyz\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_event8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"startTime\": \"2017-11-01 16:00:49.349 +00:00\",\r\n  \"endTime\": \"xyz\",\r\n  \"EventName\": \"Anokha2\",\r\n  \"Description\": \"\"  ,\r\n  \"type\": \"xyz\",\r\n  \"Location\": \"AB-3\",\r\n  \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_event1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_event2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Event1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"EventId\": \"69e965dc-e7bf-4231-a9fc-813a94f2c421\",\r\n            \"creator\": \"admin\",\r\n            \"startTime\": \"2018-11-01T16:00:49.349Z\",\r\n            \"endTime\": \"2018-11-01T16:00:49.349Z\",\r\n            \"EventName\": \"Anokha2020\",\r\n            \"Description\": \"\",\r\n            \"type\": \"Misc\",\r\n            \"Location\": \"AB-3\",\r\n            \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Event2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"EventId\": \"a1818880-349d-4989-89d4-f\",\r\n            \"creator\": \"admin\",\r\n            \"startTime\": \"2017-11-01T16:00:49.349Z\",\r\n            \"endTime\": \"2017-11-01T16:00:49.349Z\",\r\n            \"EventName\": \"Anokha2020\",\r\n            \"Description\": \"\",\r\n            \"type\": \"Misc\",\r\n            \"Location\": \"AB-3\",\r\n            \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Event3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"EventId\": \"a1818880-349d-4989-89d4-fa8f8875cad9\",\r\n            \"creator\": \"admin\",\r\n            \"startTime\": \"xyz\",\r\n            \"endTime\": \"2017-11-01T16:00:49.349Z\",\r\n            \"EventName\": \"Anokha2020\",\r\n            \"Description\": \"\",\r\n            \"type\": \"Misc\",\r\n            \"Location\": \"AB-3\",\r\n            \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Event4",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"EventId\": \"a1818880-349d-4989-89d4-fa8f8875cad9\",\r\n            \"creator\": \"admin\",\r\n            \"startTime\": \"2017-11-01T16:00:49.349Z\",\r\n            \"endTime\": \"xyz\",\r\n            \"EventName\": \"Anokha2020\",\r\n            \"Description\": \"\",\r\n            \"type\": \"Misc\",\r\n            \"Location\": \"AB-3\",\r\n            \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Event5",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"EventId\": \"a1818880-349d-4989-89d4-fa8f8875cad9\",\r\n            \"creator\": \"admin\",\r\n            \"startTime\": \"2017-11-01T16:00:49.349Z\",\r\n            \"endTime\": \"xyz\",\r\n            \"EventName\": \"Anokha2020\",\r\n            \"Description\": \"\",\r\n            \"type\": \"Misc\",\r\n            \"Location\": \"AB-3\",\r\n            \"Participants\": [\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_event1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/events?EventId=69e965dc-e7bf-4231-a9fc-813a94f2c421",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "EventId",
+							"value": "69e965dc-e7bf-4231-a9fc-813a94f2c421"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_event2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/events?EventId=1463bc9b-32e1-41ed-823a-e8e76cdacd2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "EventId",
+							"value": "1463bc9b-32e1-41ed-823a-e8e76cdacd2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_event3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/api/events?EventId=1463bc9b-32e1-41ed-823a-e8e76cdacd26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "EventId",
+							"value": "1463bc9b-32e1-41ed-823a-e8e76cdacd26"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

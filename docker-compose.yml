@@ -10,7 +10,7 @@ services:
 
       dockerfile: ./Dockerfile
 
-    image: "sasmithaa1/fcs"
+    image: "dhanushc00/fcs1-server"
 
     ports:
 
@@ -24,7 +24,7 @@ services:
 
       dockerfile: ./Dockerfile
 
-    image: "sasmithaa1/fcs1"
+    image: "dhanushc00/fcs1-client"
     ports:
       - "3000:3000"
     links:
