@@ -550,14 +550,14 @@ describe('put /src/routes/api/applyLeave', () => {
 
 
         // describe('POST /src/routes/api/ACal', () => {
-        //   it('should respond with json on post create',function (done)  {
+        //   it('POST day type in calendar- STATUS 200 OK',function (done)  {
         //     console.log("in test days create ");
         //     console.log("token " + token);
         //     var data = 
           
         //     {
-        //       "date": "2021-06-15",
-        //       "type": "W"
+        //       "date": "2021-06-25",
+        //       "type": "H"
         //   }
         //     request(calserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
         //       console.log("the body " +res.body);
@@ -574,17 +574,65 @@ describe('put /src/routes/api/applyLeave', () => {
         //   });
         //   });
 
+        //   describe('POST /src/routes/api/ACal', () => {
+        //     it('Testcase without token- BAD REQUEST 400',function (done)  {
+        //       console.log("in test days create ");
+        //       // console.log("token " + token);
+        //       var data = 
+        //       {
+        //         "date": "2021-06-15",
+        //         "type": "H"
+        //     }
+        //       request(calserver).post('/').send(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
+        //         // console.log("the body " +res.body);
+        //           if (err){
+        //            done(err);
+        //           }
+        //           else{
+        //             // console.log("Output days");
+        //             console.log(res.body);
+        //             done();
+        //           }
+        //            });
+                
+        //     });
+        //     });
+
+        //     describe('POST /src/routes/api/ACal', () => {
+        //       it('Testcase without insufficient data- BAD REQUEST 400',function (done)  {
+        //         console.log("in test days create ");
+        //         // console.log("token " + token);
+        //         var data = 
+        //         {
+        //           "type": "H"
+        //       }
+        //         request(calserver).post('/').send(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
+        //           // console.log("the body " +res.body);
+        //             if (err){
+        //              done(err);
+        //             }
+        //             else{
+        //               // console.log("Output days");
+        //               console.log(res.body);
+        //               done();
+        //             }
+        //              });
+                  
+        //       });
+        //       });
+  
+
           
 
 
         // describe('GET /src/routes/api/ACal', () => {
-        //   it('should respond with json on get view',function (done)  {
+        //   it('Gets info from the data (token used)- STATUS 200 OK',function (done)  {
         //     console.log("in test calendar view ");
         //     console.log("token " + token);
         //     var data = 
-          
+    
         //     {
-        //       "date":"2021-06-15"
+        //       "date": "2021-06-25"
         //   }
         //     request(calserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
         //       console.log("the body " +res.body);
@@ -599,6 +647,53 @@ describe('put /src/routes/api/applyLeave', () => {
         //          });  
         //   });
         //   });
+
+        //   describe('GET /src/routes/api/ACal', () => {
+        //     it('Fail testcase - without Token- BAD REQUEST 400 ',function (done)  {
+        //       console.log("in test calendar view ");
+        //       console.log("token " + token);
+        //       var data = 
+      
+        //       {
+        //         "date": "2021-06-15"
+        //     }
+        //       request(calserver).get('/').query(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
+        //         console.log("the body " +res.body);
+        //           if (err){
+        //            done(err);
+        //           }
+        //           else{
+        //             console.log("Output days");
+        //             console.log(res.body);
+        //             done();
+        //           }
+        //            });  
+        //     });
+        //     });
+
+        //     describe('GET /src/routes/api/ACal', () => {
+        //       it('Fail testcase - insufficient data - BAD REQUEST 400 ',function (done)  {
+        //         console.log("in test calendar view ");
+        //         console.log("token " + token);
+        //         var data = 
+        
+        //         {
+
+        //       }
+        //         request(calserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //           console.log("the body " +res.body);
+        //             if (err){
+        //              done(err);
+        //             }
+        //             else{
+        //               console.log("Output days");
+        //               console.log(res.body);
+        //               done();
+        //             }
+        //              });  
+        //       });
+        //       });
+
         //  describe('DELETE /src/routes/api/ACal', () => {
         //   it('should respond with json on delete route',function (done)  {
         //     console.log("in test class periods delete ");
@@ -751,84 +846,101 @@ describe('put /src/routes/api/applyLeave', () => {
           });
           });
           */
+         
 /* reminder module */
          
-        describe('POST /src/routes/api/reminder', () => {
-          it('Successful post status 200 OK, with token',function (done)  {
-            // console.log("token " + token);
-            var data = 
-            {
-              "time":"2021-05-08 16:00:49.349 +00:00",
-              "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
-            }
-            request(reminderserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              // console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  // console.log(res.body);
-                  done();
-                }
-                }); 
-          });
-          });
-          describe('POST /src/routes/api/reminder', () => {
-            it('Failed testcase with no token, 400 BAD REQUEST ',function (done)  {
-              // console.log("token " + token);
-              var data = 
-              {
-                "time":"2021-05-08 16:00:49.349 +00:00",
-                "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
-              }
-              request(reminderserver).post('/').send(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
-                // console.log("the body " +res.body);
-                  if (err){
-                   done(err);
-                  }
-                  else{
-                    // console.log(res.body);
-                    done();
-                  }
-                  }); 
-            });
-            });
-            describe('POST /src/routes/api/reminder', () => {
-              it('Failed testcase with insufficient data to post, 400 BAD REQUEST ',function (done)  {
-                // console.log("token " + token);
-                var data = 
-                {
-                  "time":"2021-05-08 16:00:49.349 +00:00",
-                  // "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
-                }
-                request(reminderserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(401).expect('Content-Type', /json/).end(function (err, res) {
-                  // console.log("the body " +res.body);
-                    if (err){
-                     done(err);
-                    }
-                    else{
-                      // console.log(res.body);
-                      done();
-                    }
-                    }); 
-              });
-              });
+        // describe('POST /src/routes/api/reminder', () => {
+        //   it('Successful post status 200 OK, with token',function (done)  {
+        //     // console.log("token " + token);
+        //     var data = 
+        //     {
+        //       "time":"2021-05-08 16:00:49.349 +00:00",
+        //       "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
+        //     }
+        //     request(reminderserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       // console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           // console.log(res.body);
+        //           done();
+        //         }
+        //         }); 
+        //   });
+        //   });
+        //   describe('POST /src/routes/api/reminder', () => {
+        //     it('Failed testcase with no token, 400 BAD REQUEST ',function (done)  {
+        //       // console.log("token " + token);
+        //       var data = 
+        //       {
+        //         "time":"2021-05-08 16:00:49.349 +00:00",
+        //         "id":"64701a4d-fd05-4e95-a05c-88cf16386a80" 
+        //       }
+        //       request(reminderserver).post('/').send(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
+        //         // console.log("the body " +res.body);
+        //           if (err){
+        //            done(err);
+        //           }
+        //           else{
+        //             // console.log(res.body);
+        //             done();
+        //           }
+        //           }); 
+        //     });
+        //     });
+        //     describe('POST /src/routes/api/reminder', () => {
+        //       it('Failed testcase with insufficient data to post, 401 BAD REQUEST ',function (done)  {
+        //         // console.log("token " + token);
+        //         var data = 
+        //         {
+        //         }
+        //         request(reminderserver).post('/').set({ 'Authorization': 'Token ' + token }).send(data).expect(401).expect('Content-Type', /json/).end(function (err, res) {
+        //           // console.log("the body " +res.body);
+        //             if (err){
+        //              done(err);
+        //             }
+        //             else{
+        //               // console.log(res.body);
+        //               done();
+        //             }
+        //             }); 
+        //       });
+        //       });
         
-        describe('GET /src/routes/api/reminder', () => {
-          it('should respond with json on get view',function (done)  {
-            var data = 
-            {
-              "username":"JD"
-          }
-            request(reminderserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
-              // console.log("the body " +res.body);
-                if (err){
-                 done(err);
-                }
-                else{
-                  // console.log(res.body);
-                  done();
-                }
-                 });  
-          });
-          });
+        // describe('GET /src/routes/api/reminder', () => {
+        //   it('Get request successful with token - STATUS 200 OK',function (done)  {
+        //     var data = 
+        //     {
+        //       "username":"JD"
+        //               }
+        //     request(reminderserver).get('/').set({ 'Authorization': 'Token ' + token }).query(data).expect(200).expect('Content-Type', /json/).end(function (err, res) {
+        //       // console.log("the body " +res.body);
+        //         if (err){
+        //          done(err);
+        //         }
+        //         else{
+        //           // console.log(res.body);
+        //           done();
+        //         }
+        //          });  
+        //   });
+        //   });
+
+        //   describe('GET /src/routes/api/reminder', () => {
+        //     it('GET request failed- no token- STATUS 400 BAD REQUEST',function (done)  {
+        //       var data = 
+        //       {
+        //     }
+        //       request(reminderserver).get('/').query(data).expect(400).expect('Content-Type', /json/).end(function (err, res) {
+        //         // console.log("the body " +res.body);
+        //           if (err){
+        //            done(err);
+        //           }
+        //           else{
+        //             // console.log(res.body);
+        //             done();
+        //           }
+        //            });  
+        //     });
+        //     });
