@@ -3,7 +3,7 @@ describe('Login page',()=>{
         cy.visit('localhost:3000/login')
         cy.get('[id=email]').type('mithun@amrita.com')
         cy.get('[id=password]').type('123')
-        cy.get('[data-testid=submit]').click()
+        cy.get('[id=submit]').click()
         cy.url().should('contain','/protected')
         cy.get('button').contains('Apply Leave').click()
         cy.url().should('contain','/protected/leave')
@@ -12,7 +12,7 @@ describe('Login page',()=>{
         cy.visit('localhost:3000/login')
         cy.get('[id=email]').type('mithun@amrita.com')
         cy.get('[id=password]').type('123')
-        cy.get('[data-testid=submit]').click()
+        cy.get('[id=submit]').click()
         cy.url().should('contain','/protected')
         cy.get('button').contains('Apply Leave').click()
         cy.url().should('contain','/protected/leave')
@@ -22,7 +22,7 @@ describe('Login page',()=>{
         cy.visit('localhost:3000/login')
         cy.get('[id=email]').type('mithun@amrita.com')
         cy.get('[id=password]').type('123')
-        cy.get('[data-testid=submit]').click()
+        cy.get('[id=submit]').click()
         cy.url().should('contain','/protected')
         cy.get('button').contains('Apply Leave').click()
         cy.url().should('contain','/protected/leave')
@@ -35,5 +35,5 @@ describe('Login page',()=>{
         cy.get('[id=chakra-toast-manager-bottom]').should('contain','Leave apply success')
         cy.get('button').contains('VIEW LEAVES').click()
     })
-    
+
 })
